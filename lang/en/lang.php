@@ -6,7 +6,7 @@ return [
 
     'plugin' => [
         'name'        => 'Links Builder',
-        'description' => 'Draws a list of links for your website.',
+        'description' => 'This plugin allows you to show off a list of categorized links on your website. It also can be used to show a list of interes with phone, website and description with a picture.',
     ],
 
     'navigation' => [

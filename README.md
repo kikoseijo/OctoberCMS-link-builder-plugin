@@ -1,5 +1,7 @@
 # octoberCMS-link-builder
 
+[![StyleCI](https://styleci.io/repos/99113402/shield?branch=master)](https://styleci.io/repos/99113402)
+
 This plugin allows you to show off a list of categorized links on your website. It also can be used to show a list of interes with phone, website and description with a picture.
 
 Links are categorized with the following structure:
