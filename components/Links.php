@@ -1,37 +1,38 @@
-<?php namespace Ksoft\Links\Components;
+<?php
+
+namespace Ksoft\Links\Components;
 
 use Cms\Classes\ComponentBase;
 use Cms\Classes\Page;
-use Ksoft\Links\Models\Item;
 use Ksoft\Links\Models\Category;
+use Ksoft\Links\Models\Item;
 use Lang;
 
-class Links extends ComponentBase {
-
+class Links extends ComponentBase
+{
     /**
-     * Collection of the links items to display
+     * Collection of the links items to display.
      *
      * @var Collection
      */
     public $links;
 
     /**
-     * Reference to the item page to link items to
+     * Reference to the item page to link items to.
      *
-     * @var String
+     * @var string
      */
     public $itemPage;
 
-
     /**
-     * Reference to the page where items of a category are displayed
+     * Reference to the page where items of a category are displayed.
      *
      * @var
      */
     public $catListPage;
 
     /**
-     * Component Details
+     * Component Details.
      *
      * @return array
      */
@@ -39,12 +40,12 @@ class Links extends ComponentBase {
     {
         return [
             'name'        => 'ksoft.links::lang.components.links.name',
-            'description' => 'ksoft.links::lang.components.links.description'
+            'description' => 'ksoft.links::lang.components.links.description',
         ];
     }
 
     /**
-     * Define component properties
+     * Define component properties.
      *
      * @return array
      */
@@ -52,10 +53,10 @@ class Links extends ComponentBase {
     {
         return [
             'category' => [
-                'title' => 'ksoft.links::lang.components.links.properties.category.title',
-                'type' => 'dropdown',
-                'default' => '1',
-                'placeholder' => 'ksoft.links::lang.components.links.properties.category.placeholder'
+                'title'       => 'ksoft.links::lang.components.links.properties.category.title',
+                'type'        => 'dropdown',
+                'default'     => '1',
+                'placeholder' => 'ksoft.links::lang.components.links.properties.category.placeholder',
             ],
             'itemsPerPage' => [
                 'title'             => 'ksoft.links::lang.components.links.properties.itemsPerPage.title',
@@ -65,24 +66,24 @@ class Links extends ComponentBase {
                 'default'           => '6',
             ],
             'order' => [
-                'title' => 'ksoft.links::lang.components.links.properties.order.title',
+                'title'       => 'ksoft.links::lang.components.links.properties.order.title',
                 'placeholder' => 'ksoft.links::lang.components.links.properties.order.placeholder',
-                'type' => 'dropdown',
-                'default' => 'asc'
+                'type'        => 'dropdown',
+                'default'     => 'asc',
             ],
             'pageNumber' => [
-                'title' => 'ksoft.links::lang.components.links.properties.pageNumber.title',
+                'title'       => 'ksoft.links::lang.components.links.properties.pageNumber.title',
                 'description' => 'ksoft.links::lang.components.links.properties.pageNumber.description',
-                'type' => 'string',
-                'default' => '{{ :page }}',
-                'group' => 'ksoft.links::lang.components.links.properties.group.advanced'
+                'type'        => 'string',
+                'default'     => '{{ :page }}',
+                'group'       => 'ksoft.links::lang.components.links.properties.group.advanced',
             ],
             'selectedCat' => [
-                'title' => 'ksoft.links::lang.components.links.properties.selectedCat.title',
+                'title'       => 'ksoft.links::lang.components.links.properties.selectedCat.title',
                 'description' => 'ksoft.links::lang.components.links.properties.selectedCat.description',
-                'type' => 'string',
-                'default' => '{{ :selected_cat }}',
-                'group' => 'ksoft.links::lang.components.links.properties.group.advanced'
+                'type'        => 'string',
+                'default'     => '{{ :selected_cat }}',
+                'group'       => 'ksoft.links::lang.components.links.properties.group.advanced',
             ],
             'catListPage' => [
                 'title'       => 'ksoft.links::lang.components.links.properties.catListPage.title',
@@ -102,7 +103,7 @@ class Links extends ComponentBase {
     }
 
     /**
-     * Get options for the category dropdown
+     * Get options for the category dropdown.
      *
      * @return mixed
      */
@@ -110,24 +111,25 @@ class Links extends ComponentBase {
     {
         $categories = Category::lists('name', 'id');
         $categories[0] = Lang::get('ksoft.links::lang.components.links.properties.category.all');
+
         return $categories;
     }
 
     /**
-     * Get options for the order dropdown
+     * Get options for the order dropdown.
      *
      * @return array
      */
     public function getOrderOptions()
     {
         return [
-            'asc' => Lang::get('ksoft.links::lang.components.links.properties.order.ascending'),
-            'desc' => Lang::get('ksoft.links::lang.components.links.properties.order.descending')
+            'asc'  => Lang::get('ksoft.links::lang.components.links.properties.order.ascending'),
+            'desc' => Lang::get('ksoft.links::lang.components.links.properties.order.descending'),
         ];
     }
 
     /**
-     * Get options for the dropdown where the link to the item page can be selected
+     * Get options for the dropdown where the link to the item page can be selected.
      *
      * @return mixed
      */
@@ -136,9 +138,8 @@ class Links extends ComponentBase {
         return Page::sortBy('baseFileName')->lists('baseFileName', 'baseFileName');
     }
 
-
     /**
-     * Get options for the dropdown where the link to the category list page can be selected
+     * Get options for the dropdown where the link to the category list page can be selected.
      *
      * @return mixed
      */
@@ -158,24 +159,24 @@ class Links extends ComponentBase {
 
         // find the correct property to select the items with
         $object = null;
-        if($this->property('selectedCat') != null){
+        if ($this->property('selectedCat') != null) {
             $object = $this->loadItemsByCategory($this->property('selectedCat'), true);
-        }elseif($this->property('category') != null) {
+        } elseif ($this->property('category') != null) {
             $object = $this->loadItemsByCategory($this->property('category'));
         }
 
         // check if a valid object has been created
-        if( !$object ){
+        if (!$object) {
             // display all items
             $this->links = Item::orderBy('order', $this->property('order'))->paginate($this->property('itemsPerPage'), $this->property('pageNumber'));
-        }else{
+        } else {
             // show the items in the links
             $this->links = $object->items()
                 ->orderBy('order', $this->property('order'))->paginate($this->property('itemsPerPage'), $this->property('pageNumber'));
         }
 
         // Add url helper to the items
-        if($this->links != null) {
+        if ($this->links != null) {
             $this->links = $this->updatePageUrls($this->links);
         }
     }
@@ -185,32 +186,32 @@ class Links extends ComponentBase {
      *
      * @param $selectedCategory
      * @param bool|false $bySlug
+     *
      * @return mixed
      */
     protected function loadItemsByCategory($selectedCategory, $bySlug = false)
     {
-        if($bySlug){
+        if ($bySlug) {
             $category = Category::where('slug', '=', $selectedCategory)->first();
-        }else{
+        } else {
             $category = Category::find($selectedCategory);
         }
 
         return $category;
     }
 
-
     /**
      * Add PageUrl helpers to all items which can be linked to a
      * dedicated page to display the item.
      *
      * @param $items
+     *
      * @return mixed
      */
     protected function updatePageUrls($items)
     {
         //Add a "url" helper attribute for linking to each item
-        $items->each(function($item)
-        {
+        $items->each(function ($item) {
             $item->setPageUrl($this->itemPage, $this->controller);
 
             $item->category->setPageUrl($this->catListPage, $this->controller);
@@ -218,5 +219,4 @@ class Links extends ComponentBase {
 
         return $items;
     }
-
 }

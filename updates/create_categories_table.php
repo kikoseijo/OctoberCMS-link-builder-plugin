@@ -1,15 +1,15 @@
-<?php namespace Ksoft\Links\Updates;
+<?php
 
-use Schema;
+namespace Ksoft\Links\Updates;
+
 use October\Rain\Database\Updates\Migration;
+use Schema;
 
-class CreateCategoriesTable extends Migration
+class create_categories_table extends Migration
 {
-
     public function up()
     {
-        Schema::create('ksoft_links_categories', function($table)
-        {
+        Schema::create('ksoft_links_categories', function ($table) {
             $table->engine = 'InnoDB';
             $table->increments('id');
             $table->string('name');
@@ -23,5 +23,4 @@ class CreateCategoriesTable extends Migration
     {
         Schema::dropIfExists('ksoft_links_categories');
     }
-
 }

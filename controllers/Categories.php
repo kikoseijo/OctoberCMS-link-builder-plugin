@@ -1,19 +1,21 @@
-<?php namespace Ksoft\Links\Controllers;
+<?php
 
-use BackendMenu;
+namespace Ksoft\Links\Controllers;
+
 use Backend\Classes\Controller;
+use BackendMenu;
 use Flash;
 use Ksoft\Links\Models\Category;
 use Lang;
 
 /**
- * Categories Back-end Controller
+ * Categories Back-end Controller.
  */
 class Categories extends Controller
 {
     public $implement = [
         'Backend.Behaviors.FormController',
-        'Backend.Behaviors.ListController'
+        'Backend.Behaviors.ListController',
     ];
 
     public $formConfig = 'config_form.yaml';
@@ -30,8 +32,9 @@ class Categories extends Controller
     {
         if ($checkedIds = post('checked')) {
             foreach ($checkedIds as $itemId) {
-                if (! $table = Category::find($itemId))
+                if (!$table = Category::find($itemId)) {
                     continue;
+                }
                 $table->delete();
             }
 

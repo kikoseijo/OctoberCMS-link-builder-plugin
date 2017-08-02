@@ -1,31 +1,33 @@
-<?php namespace Ksoft\Links\Components;
+<?php
+
+namespace Ksoft\Links\Components;
 
 use Cms\Classes\ComponentBase;
 use Cms\Classes\Page;
-use Lang;
 use Ksoft\Links\Models\Item as LinkItem;
+use Lang;
 
 class Item extends ComponentBase
 {
     /**
-     * Value holds the selected item to display
+     * Value holds the selected item to display.
+     *
      * @var
      */
     public $item;
 
     /**
-     * Reference to the page where items of a category are displayed
+     * Reference to the page where items of a category are displayed.
      *
      * @var
      */
     public $catListPage;
 
-
     public function componentDetails()
     {
         return [
             'name'        => 'ksoft.links::lang.components.item.name',
-            'description' => 'ksoft.links::lang.components.item.description'
+            'description' => 'ksoft.links::lang.components.item.description',
         ];
     }
 
@@ -56,7 +58,7 @@ class Item extends ComponentBase
     }
 
     /**
-     * Get options for the item dropdown
+     * Get options for the item dropdown.
      *
      * @return mixed
      */
@@ -64,12 +66,12 @@ class Item extends ComponentBase
     {
         $categories = LinkItem::lists('title', 'slug');
         $categories[0] = Lang::get('ksoft.links::lang.components.item.properties.item.none');
+
         return $categories;
     }
 
-
     /**
-     * Get options for the dropdown where the link to the category list page can be selected
+     * Get options for the dropdown where the link to the category list page can be selected.
      *
      * @return mixed
      */
@@ -85,36 +87,38 @@ class Item extends ComponentBase
 
         // find the correct property to select the items with
         $object = null;
-        if($this->property('itemSlug') != null && $this->property('itemSlug') != 'default'){
+        if ($this->property('itemSlug') != null && $this->property('itemSlug') != 'default') {
             $object = $this->loadItemBySlug($this->property('itemSlug'));
-        }elseif ($this->property('item') != null && $this->property('item') != 'None') {
+        } elseif ($this->property('item') != null && $this->property('item') != 'None') {
             $object = $this->loadItemBySlug($this->property('item'));
         }
 
         // check if a valid object has been created
-        if( !$object ){
+        if (!$object) {
             // todo : throw error
             $this->item = null;
-        }else{
+        } else {
             // show the items in the links
             $this->item = $object;
         }
 
         // Add url helper to the items
-        if($this->item != null) {
+        if ($this->item != null) {
             $this->item = $this->updatePageUrls($this->item);
         }
     }
 
     /**
-     * Load the selected item by its slug
+     * Load the selected item by its slug.
      *
      * @param $selectedItem
+     *
      * @return mixed
      */
     protected function loadItemBySlug($selectedItem)
     {
         $item = LinkItem::where('slug', '=', $selectedItem)->first();
+
         return $item;
     }
 
@@ -123,6 +127,7 @@ class Item extends ComponentBase
      * dedicated page to display the item.
      *
      * @param $item
+     *
      * @return mixed
      */
     protected function updatePageUrls($item)
@@ -132,5 +137,4 @@ class Item extends ComponentBase
 
         return $item;
     }
-
 }

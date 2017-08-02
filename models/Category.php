@@ -1,18 +1,19 @@
-<?php namespace Ksoft\Links\Models;
+<?php
+
+namespace Ksoft\Links\Models;
 
 use Model;
 
 /**
- * Category Model
+ * Category Model.
  */
 class Category extends Model
 {
-
     public $implement = ['@RainLab.Translate.Behaviors.TranslatableModel'];
 
     public $rules = [
-        'name' => 'required|max:50',
-        'order' => 'numeric'
+        'name'  => 'required|max:50',
+        'order' => 'numeric',
     ];
 
     /**
@@ -34,14 +35,15 @@ class Category extends Model
      * @var array Relations
      */
     public $hasMany = [
-        'items' => ['Ksoft\Links\Models\Item']
+        'items' => ['Ksoft\Links\Models\Item'],
     ];
 
     /**
-     * Set the PageUrl parameter to link the correct page
+     * Set the PageUrl parameter to link the correct page.
      *
      * @param $pageName
      * @param $controller
+     *
      * @return mixed
      */
     public function setPageUrl($pageName, $controller)
@@ -52,6 +54,4 @@ class Category extends Model
 
         return $this->pageUrl = $controller->pageUrl($pageName, $params);
     }
-
-
 }
