@@ -1,0 +1,55 @@
+fields:
+    title:
+        label: 'ksoft.links::lang.fields.item.title'
+        span: auto
+        required: true
+        type: text
+    category:
+        label: 'ksoft.links::lang.columns.category.name'
+        nameFrom: name
+        descriptionFrom: description
+        span: auto
+        type: relation
+    link:
+        label: 'ksoft.links::lang.fields.item.link'
+        span: auto
+        type: text
+    phone:
+        label: 'ksoft.links::lang.fields.item.phone'
+        span: auto
+        type: text
+    target:
+        label: 'ksoft.links::lang.fields.item.target'
+        span: auto
+        type: checkbox
+    enabled:
+        label: 'ksoft.links::lang.fields.item.enabled'
+        span: left
+        default: 1
+        type: switch
+tabs:
+    fields:
+        slug:
+            label: 'ksoft.links::lang.fields.item.slug'
+            span: auto
+            preset:
+                field: title
+                type: slug
+            type: text
+            tab: 'ksoft.links::lang.extra_data'
+        order:
+            label: 'ksoft.links::lang.fields.item.order'
+            span: auto
+            type: text
+            tab: 'ksoft.links::lang.extra_data'
+        description:
+            label: 'ksoft.links::lang.fields.category.description'
+            span: full
+            type: richeditor
+            tab: 'ksoft.links::lang.extra_data'
+        image:
+            label: 'ksoft.links::lang.fields.item.image'
+            type: mediafinder
+            span: auto
+            mode: image
+            tab: 'ksoft.links::lang.columns.item.image'

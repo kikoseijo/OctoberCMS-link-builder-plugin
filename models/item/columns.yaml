@@ -1,0 +1,25 @@
+# ===================================
+#  List Column Definitions
+# ===================================
+
+columns:
+    category:
+        label: ksoft.links::lang.columns.category.name
+        relation: category
+        select: name
+    order:
+        label     : ksoft.links::lang.columns.item.order
+    title:
+        label     : ksoft.links::lang.columns.item.title
+        searchable: true
+    phone:
+        label     : ksoft.links::lang.columns.item.phone
+        searchable: true
+    link:
+        label     : ksoft.links::lang.columns.item.link
+        searchable: true
+    enabled:
+        label     : ksoft.links::lang.columns.item.enabled
+        type      : partial
+        path      : ~/plugins/ksoft/links/models/item/_enabled_column.htm
+        sortable  : true

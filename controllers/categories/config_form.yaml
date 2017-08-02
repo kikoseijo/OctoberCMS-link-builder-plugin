@@ -1,0 +1,30 @@
+# ===================================
+#  Form Behavior Config
+# ===================================
+
+# Record name
+name: ksoft.links::lang.controller.form.categories.title
+
+# Model Form Field configuration
+form: $/ksoft/links/models/category/fields.yaml
+
+# Model Class name
+modelClass: Ksoft\Links\Models\Category
+
+# Default redirect location
+defaultRedirect: ksoft/links/categories
+
+# Create page
+create:
+    title: ksoft.links::lang.controller.form.categories.create
+    redirect: ksoft/links/categories/update/:id
+    redirectClose: ksoft/links/categories
+    flashSave: ksoft.links::lang.controller.form.categories.flashCreate
+
+# Update page
+update:
+    title: ksoft.links::lang.controller.form.categories.update
+    redirect: ksoft/links/categories
+    redirectClose: ksoft/links/categories
+    flashSave: ksoft.links::lang.controller.form.categories.flashUpdate
+    flashDelete: ksoft.links::lang.controller.form.categories.flashDelete

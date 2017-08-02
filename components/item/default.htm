@@ -1,0 +1,29 @@
+{% set item = __SELF__.item %}
+<div class="container m-t-lg">
+    <div class="row">
+        <div class="col-lg-6">
+            {% if item.image %}
+            <div class="col-sm-6">
+                <img class="img-responsive " src="/storage/app/media{{ item.image }}" alt="{{ item.title }}" {% if item.title %}title="{{ item.title }}"{% endif %}>
+            </div>
+            {% endif %}
+        </div>
+        <div class="col-lg-6">
+            <h1>Portfolio Item {{ item.id }}</h1>
+            <h2>{{ item.title }}</h2>
+            <small>posted {{ item.created_at|date('j m Y') }} in <a href="{{ item.category.pageUrl }}">{{ item.category.name }}</a></small>
+            <div>
+                {% for tag in item.tags %}
+                <a href="{{ tag.pageUrl }}"><span class="label label-default">{{ tag.name }}</span></a>
+                {% endfor %}
+            </div>
+            <p>{{ item.description|raw }}</p>
+            {% if item.link %}
+                <a href="{{ item.link }}" class="btn btn-default" {% if item.target %}target="_blank"{% endif %}>view link web</a>
+            {% endif %}
+            {% if item.phone %}
+                <a href="tel:{{ item.phone }}" class="btn btn-default" target="_blank">{{item.phone}}</a>
+            {% endif %}
+        </div>
+    </div>
+</div>

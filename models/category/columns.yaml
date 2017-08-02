@@ -1,0 +1,13 @@
+# ===================================
+#  List Column Definitions
+# ===================================
+
+columns:
+    order:
+        label     : ksoft.links::lang.columns.item.order
+    name:
+        label: ksoft.links::lang.columns.category.name
+        searchable: true
+    description:
+        label: ksoft.links::lang.columns.category.description
+        searchable: false

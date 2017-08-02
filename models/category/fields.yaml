@@ -1,0 +1,23 @@
+# ===================================
+#  Form Field Definitions
+# ===================================
+
+fields:
+    name:
+        label: ksoft.links::lang.fields.category.name
+        span: left
+        searchable: true
+    slug:
+        label: ksoft.links::lang.fields.category.slug
+        span: right
+        preset:
+            field: name
+            type: slug
+    description:
+        label: ksoft.links::lang.fields.category.description
+        type: richeditor
+        searchable: false
+    order:
+        label: 'ksoft.links::lang.fields.item.order'
+        span: auto
+        type: text

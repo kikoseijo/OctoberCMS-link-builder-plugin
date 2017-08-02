@@ -1,0 +1,30 @@
+# ===================================
+#  Form Behavior Config
+# ===================================
+
+# Record name
+name: ksoft.links::lang.controller.form.items.title
+
+# Model Form Field configuration
+form: $/ksoft/links/models/item/fields.yaml
+
+# Model Class name
+modelClass: Ksoft\Links\Models\Item
+
+# Default redirect location
+defaultRedirect: ksoft/links/items
+
+# Create page
+create:
+    title        : ksoft.links::lang.controller.form.items.create
+    redirect     : ksoft/links/items/update/:id
+    redirectClose: ksoft/links/items
+    flashSave    : ksoft.links::lang.controller.form.items.flashCreate
+
+# Update page
+update:
+    title        : ksoft.links::lang.controller.form.items.update
+    redirect     : ksoft/links/items
+    redirectClose: ksoft/links/items
+    flashSave    : ksoft.links::lang.controller.form.items.flashUpdate
+    flashDelete  : ksoft.links::lang.controller.form.items.flashDelete

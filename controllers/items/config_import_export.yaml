@@ -1,0 +1,10 @@
+# ===================================
+#  Import/Export Behavior Config
+# ===================================
+
+import:
+    title: Import Links
+    modelClass: Ksoft\Links\Models\ItemImport
+    list: $/ksoft/links/models/itemimport/columns.yaml
+    redirect: ksoft/links/items
+    permissions: ksoft.links.import_export

@@ -1,0 +1,73 @@
+<div data-control="toolbar">
+    <a
+        href="<?= Backend::url('ksoft/links/items/create') ?>"
+        class="btn btn-primary oc-icon-plus">
+        <?= e(trans('ksoft.links::lang.controller.view.items.new')) ?>
+    </a>
+    <?php if (Ksoft\Links\Models\Item::count() > 0): ?>
+    <div class="btn-group">
+        <button
+            class="btn btn-default oc-icon-check"
+            disabled="disabled"
+            onclick="$(this).data('request-data', {
+                checked: $('.control-list').listWidget('getChecked')
+            })"
+            data-request="onActivatePosts"
+            data-trigger-action="enable"
+            data-trigger=".control-list input[type=checkbox]"
+            data-trigger-condition="checked"
+            data-stripe-load-indicator>
+            <?= e(trans('ksoft.links::lang.button.activate')) ?>
+        </button>
+        <button
+            class="btn btn-default oc-icon-eye-slash"
+            disabled="disabled"
+            onclick="$(this).data('request-data', {
+                checked: $('.control-list').listWidget('getChecked')
+            })"
+            data-request="onDeactivatePosts"
+            data-trigger-action="enable"
+            data-trigger=".control-list input[type=checkbox]"
+            data-trigger-condition="checked"
+            data-stripe-load-indicator>
+            <?= e(trans('ksoft.links::lang.button.deactivate')) ?>
+        </button>
+        <button
+            class="btn btn-default oc-icon-pencil"
+            disabled="disabled"
+            onclick="$(this).data('request-data', {
+                checked: $('.control-list').listWidget('getChecked')
+            })"
+            data-request="onDraftPosts"
+            data-trigger-action="enable"
+            data-trigger=".control-list input[type=checkbox]"
+            data-trigger-condition="checked"
+            data-stripe-load-indicator>
+            <?= e(trans('ksoft.links::lang.form.status_draft')) ?>
+        </button>
+    </div>
+    <button
+        class="btn btn-default oc-icon-trash-o"
+        disabled="disabled"
+        onclick="$(this).data('request-data', {
+            checked: $('.control-list').listWidget('getChecked')
+        })"
+        data-request="onRemovePosts"
+        data-request-confirm="<?= e(trans('ksoft.links::lang.flash.delete')) ?>"
+        data-trigger-action="enable"
+        data-trigger=".control-list input[type=checkbox]"
+        data-trigger-condition="checked"
+        data-stripe-load-indicator>
+        <?= e(trans('system::lang.plugins.remove')) ?>
+    </button>
+    <?php endif ?>
+    <?php if ($this->user->hasAccess('ksoft.links.import_export')): ?>
+    <div class="btn-group">
+        <a
+            href="<?= Backend::url('ksoft/links/items/import') ?>"
+            class="btn btn-default oc-icon-upload">
+            <?= e(trans('ksoft.links::lang.button.import')) ?>
+        </a>
+    </div>
+    <?php endif ?>
+</div>
