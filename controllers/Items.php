@@ -44,6 +44,40 @@ class Items extends Controller
         return $this->listRefresh();
     }
 
+    public function onEnableItems()
+    {
+        if (($checkedIds = post('checked')) && is_array($checkedIds) && count($checkedIds)) {
+            foreach ($checkedIds as $itemId) {
+                if (!$item = Item::where('enabled', '!=', 1)->whereId($itemId)) {
+                    continue;
+                }
+
+                $item->update(['enabled' => 1]);
+            }
+
+            Flash::success(Lang::get('ksoft.links::lang.flash.activate'));
+        }
+
+        return $this->listRefresh();
+    }
+
+    public function onDisableItems()
+    {
+        if (($checkedIds = post('checked')) && is_array($checkedIds) && count($checkedIds)) {
+            foreach ($checkedIds as $itemId) {
+                if (!$item = Item::where('enabled', '!=', 0)->whereId($itemId)) {
+                    continue;
+                }
+
+                $item->update(['enabled' => 0]);
+            }
+
+            Flash::success(Lang::get('ksoft.links::lang.flash.deactivate'));
+        }
+
+        return $this->listRefresh();
+    }
+
     public function apiLinks()
     {
         $items = Item::all();
@@ -52,11 +86,6 @@ class Items extends Controller
             'data'    => $items,
             'count'   => $items->count(),
         ];
-    }
-
-    public function apiFoo()
-    {
-        return 'bar (foo)';
     }
 
     /* Functions to allow RESTful actions */
