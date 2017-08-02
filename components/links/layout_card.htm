@@ -14,7 +14,9 @@
     {% endif %}
     <small>posted {{ item.created_at|date('F Y') }} in <a href="{{ item.category.pageUrl }}">{{ item.category.name }}</a></small>
     {% if item.link %}
-        <a{% if item.target %} target="_blank"{% endif %} href="{{ item.link }}"  class="btn btn-primary"><?php _e(trans('ksoft.links::lang.components.visit_website'))?></a>
+        <a{% if item.target %} target="_blank"{% endif %} href="{{ item.link }}"  class="btn btn-primary">
+            {{ 'ksoft.links::lang.components.visit_website' | trans }}
+        </a>
     {% endif %}
   </div>
 </div>

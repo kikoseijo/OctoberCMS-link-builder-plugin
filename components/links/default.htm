@@ -1,7 +1,13 @@
 <div class="container m-t-lg">
     <div class="row">
         {% for item in __SELF__.links %}
-            {% partial '@layout_card' item=item %}
+            {% if listTemplate == 'list' %}
+                {% partial '@layout_list' item=item %}
+            {% elseif listTemplate == 'card' %}
+                {% partial '@layout_card' item=item %}
+            {% else %}
+                {% partial '@layout_plain' item=item %}
+            {% endif %}
         {% endfor %}
     </div>
 

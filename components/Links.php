@@ -30,6 +30,12 @@ class Links extends ComponentBase
      * @var
      */
     public $catListPage;
+    /**
+     * Reference to the template to use when showing the item in the list, posible values: card,list,plain.
+     *
+     * @var
+     */
+    public $listTemplate;
 
     /**
      * Component Details.
@@ -83,6 +89,14 @@ class Links extends ComponentBase
                 'description' => 'ksoft.links::lang.components.links.properties.selectedCat.description',
                 'type'        => 'string',
                 'default'     => '{{ :selected_cat }}',
+                'group'       => 'ksoft.links::lang.components.links.properties.group.advanced',
+            ],
+            'listTemplate' => [
+                'title'       => 'ksoft.links::lang.components.links.properties.listTemplate.title',
+                'description' => 'ksoft.links::lang.components.links.properties.listTemplate.description',
+                'type'        => 'dropdown',
+                'default'     => 'list',
+                'options'     => ['list'=>'List', 'plain'=>'Plain', 'card'=>'Card'],
                 'group'       => 'ksoft.links::lang.components.links.properties.group.advanced',
             ],
             'catListPage' => [
@@ -156,6 +170,7 @@ class Links extends ComponentBase
         // Page links
         $this->itemPage = $this->page['itemPage'] = $this->property('itemPage');
         $this->catListPage = $this->page['catListPage'] = $this->property('catListPage');
+        $this->page['listTemplate'] = $this->property('listTemplate');
 
         // find the correct property to select the items with
         $object = null;
