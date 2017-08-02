@@ -3,15 +3,16 @@
 # ===================================
 
 columns:
-    category:
-        label: ksoft.links::lang.columns.category.name
-        relation: category
-        select: name
+
     order:
         label     : ksoft.links::lang.columns.item.order
     title:
         label     : ksoft.links::lang.columns.item.title
         searchable: true
+    category:
+        label: ksoft.links::lang.columns.category.name
+        relation: category
+        select: name
     phone:
         label     : ksoft.links::lang.columns.item.phone
         searchable: true

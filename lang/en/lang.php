@@ -106,6 +106,7 @@ return [
     ],
 
     'components' => [
+        'visit_website' => 'View website',
         'item' => [
             'name'        => 'Link Item detail',
             'description' => 'Display a link in a page.',

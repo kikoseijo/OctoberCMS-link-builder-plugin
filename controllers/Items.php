@@ -78,6 +78,23 @@ class Items extends Controller
         return $this->listRefresh();
     }
 
+    public function onRemoveItem()
+    {
+        if (($checkedIds = post('checked')) && is_array($checkedIds) && count($checkedIds)) {
+            foreach ($checkedIds as $itemId) {
+                if (!$item = Item::whereId($itemId)) {
+                    continue;
+                }
+
+                $item->delete();
+            }
+
+            Flash::success(Lang::get('ksoft.links::lang.controller.form.items.flashDelete'));
+        }
+
+        return $this->listRefresh();
+    }
+
     public function apiLinks()
     {
         $items = Item::all();

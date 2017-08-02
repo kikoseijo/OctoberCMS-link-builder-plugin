@@ -44,4 +44,13 @@ class Item extends Model
 
         return $this->pageUrl = $controller->pageUrl($pageName, $params);
     }
+
+    public function imageUrl($size='300x220')
+    {
+        if ($this->image != '') {
+            return '/storage/app/media'.$this->image;
+        } else {
+            return 'http://via.placeholder.com/' .$size .'?text='.$this->slug;
+        }
+    }
 }
