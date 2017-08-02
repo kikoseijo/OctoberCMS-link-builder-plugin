@@ -6,27 +6,27 @@ return [
 
     'plugin' => [
         'name'        => 'Links Builder',
-        'description' => 'Draws a list of links for your website.'
+        'description' => 'Draws a list of links for your website.',
     ],
 
     'navigation' => [
-        'label' => 'Link builder',
+        'label'    => 'Link builder',
         'sideMenu' => [
-            'items' => 'Links',
-            'categories' => 'Categories'
-        ]
+            'items'      => 'Links',
+            'categories' => 'Categories',
+        ],
     ],
 
     'button' => [
-        'activate' => 'Activate',
-        'deactivate' => 'Hide',
-        'active' => 'Active',
-        'inactive' => 'Inactive',
-        'import' => 'Import',
-        'export' => 'Export',
+        'activate'    => 'Activate',
+        'deactivate'  => 'Hide',
+        'active'      => 'Active',
+        'inactive'    => 'Inactive',
+        'import'      => 'Import',
+        'export'      => 'Export',
         'unsubscribe' => 'Unsubscribe',
-        'subscribe' => 'Subscription',
-        'return' => 'Return'
+        'subscribe'   => 'Subscription',
+        'return'      => 'Return',
     ],
 
     'controller' => [
@@ -36,18 +36,18 @@ return [
                 'breadcrumb_label'    => 'Items',
                 'return'              => 'Return to items list',
                 'creating'            => 'Creating Item...',
-                'delete_confirmation' => 'Do you really want to delete this item?'
+                'delete_confirmation' => 'Do you really want to delete this item?',
             ],
             'categories' => [
                 'new'                 => 'New Category',
                 'breadcrumb_label'    => 'Categories',
                 'return'              => 'Return to category list',
                 'creating'            => 'Creating Category...',
-                'delete_confirmation' => 'Do you really want to delete this category?'
-            ]
+                'delete_confirmation' => 'Do you really want to delete this category?',
+            ],
         ],
         'list' => [
-            'items' => 'Manage Items',
+            'items'      => 'Manage Items',
             'categories' => 'Manage Categories',
         ],
         'form' => [
@@ -57,7 +57,7 @@ return [
                 'update'      => 'Update Item',
                 'flashCreate' => 'The Item has been created successfully',
                 'flashUpdate' => 'The Item has been updated successfully',
-                'flashDelete' => 'The Item has been deleted successfully'
+                'flashDelete' => 'The Item has been deleted successfully',
             ],
             'categories' => [
                 'title'       => 'Category',
@@ -65,9 +65,9 @@ return [
                 'update'      => 'Update Category',
                 'flashCreate' => 'The Category has been created successfully',
                 'flashUpdate' => 'The Category has been updated successfully',
-                'flashDelete' => 'The Category has been deleted successfully'
-            ]
-        ]
+                'flashDelete' => 'The Category has been deleted successfully',
+            ],
+        ],
     ],
 
     'columns' => [
@@ -78,12 +78,12 @@ return [
             'phone'   => 'Phone',
             'order'   => 'Order',
             'target'  => 'Open in new window',
-            'enabled' => 'Enabled'
+            'enabled' => 'Enabled',
         ],
         'category' => [
-            'id' => 'ID',
-            'name' => 'Category',
-            'description' => 'Description'
+            'id'          => 'ID',
+            'name'        => 'Category',
+            'description' => 'Description',
         ],
     ],
 
@@ -96,12 +96,12 @@ return [
             'order'   => 'Order',
             'target'  => 'Open in new window',
             'enabled' => 'Enabled',
-            'slug'    => 'Url Slug'
+            'slug'    => 'Url Slug',
         ],
         'category' => [
-            'name' => 'Name',
-            'slug' => 'Slug',
-            'description' => 'Description'
+            'name'        => 'Name',
+            'slug'        => 'Slug',
+            'description' => 'Description',
         ],
     ],
 
@@ -109,58 +109,58 @@ return [
         'item' => [
             'name'        => 'Link Item detail',
             'description' => 'Display a link in a page.',
-            'properties' => [
+            'properties'  => [
                 'item' => [
-                    'title' => 'Item to show',
+                    'title'       => 'Item to show',
                     'description' => 'Select a item to show. Will be overridden by URL item selection.',
-                    'none' => 'None',
+                    'none'        => 'None',
                 ],
                 'itemSlug' => [
-                    'title' => 'Item slug',
-                    'description' => 'Item slug URL identifier'
+                    'title'       => 'Item slug',
+                    'description' => 'Item slug URL identifier',
                 ],
-            ]
+            ],
         ],
         'links' => [
             'name'        => 'Links builder list',
             'description' => 'Display a links list in page.',
-            'properties' => [
+            'properties'  => [
                 'category' => [
-                    'title' => 'Category',
+                    'title'       => 'Category',
                     'placeholder' => 'Select Category',
-                    'all' => 'All'
+                    'all'         => 'All',
                 ],
                 'pageNumber' => [
-                    'title' => 'Page Number',
-                    'description' => 'This value is used to determine what page the user is on.'
+                    'title'       => 'Page Number',
+                    'description' => 'This value is used to determine what page the user is on.',
                 ],
                 'itemsPerPage' => [
-                    'title' => 'Items per page',
-                    'validationMessage' => 'Invalid format of the items per page value'
+                    'title'             => 'Items per page',
+                    'validationMessage' => 'Invalid format of the items per page value',
                 ],
                 'order' => [
-                    'title' => 'Order',
+                    'title'       => 'Order',
                     'placeholder' => 'Select Order',
-                    'ascending' => 'Ascending',
-                    'descending' => 'Descending'
+                    'ascending'   => 'Ascending',
+                    'descending'  => 'Descending',
                 ],
                 'group' => [
                     'advanced' => 'Advanced',
-                    'links' => 'Links'
+                    'links'    => 'Links',
                 ],
                 'selectedCat' => [
-                    'title' => 'Selected category',
-                    'description' => 'Don\'t change this value (default: {{ :selected_cat }})'
+                    'title'       => 'Selected category',
+                    'description' => 'Don\'t change this value (default: {{ :selected_cat }})',
                 ],
                 'itemPage' => [
-                    'title' => 'Item page',
-                    'description' => 'Page where portfolio items can be displayed.'
+                    'title'       => 'Item page',
+                    'description' => 'Page where portfolio items can be displayed.',
                 ],
                 'catListPage' => [
-                    'title' => 'Category page',
-                    'description' => 'Page where portfolio items of the selected category are listed.'
+                    'title'       => 'Category page',
+                    'description' => 'Page where portfolio items of the selected category are listed.',
                 ],
-            ]
+            ],
         ],
     ],
 
@@ -169,32 +169,32 @@ return [
         'created' => 'Created at',
         'updated' => 'Updated at',
         // Posts
-        'id' => 'ID',
-        'title' => 'Title',
-        'slug' => 'Slug',
-        'introductory' => 'Introductory',
-        'content' => 'Content',
-        'image' => 'Image',
-        'status' => 'Status',
-        'status_published' => 'Published',
-        'status_hide' => 'Hidden',
-        'status_draft' => 'Draft',
-        'status_active' => 'Active',
+        'id'                  => 'ID',
+        'title'               => 'Title',
+        'slug'                => 'Slug',
+        'introductory'        => 'Introductory',
+        'content'             => 'Content',
+        'image'               => 'Image',
+        'status'              => 'Status',
+        'status_published'    => 'Published',
+        'status_hide'         => 'Hidden',
+        'status_draft'        => 'Draft',
+        'status_active'       => 'Active',
         'status_unsubscribed' => 'Unsubscribed',
-        'featured' => 'Featured',
-        'yes' => 'Yes',
-        'no' => 'No',
-        'view' => 'view',
-        'published' => 'Published at',
-        'send' => 'Send the e-mail to subscribers.',
-        'length' => 'Length',
+        'featured'            => 'Featured',
+        'yes'                 => 'Yes',
+        'no'                  => 'No',
+        'view'                => 'view',
+        'published'           => 'Published at',
+        'send'                => 'Send the e-mail to subscribers.',
+        'length'              => 'Length',
         // Subscribers
-        'name' => 'Name',
-        'email' => 'E-mail',
+        'name'   => 'Name',
+        'email'  => 'E-mail',
         'common' => 'Common',
         'locale' => 'Locale',
-        'lang' => 'en',
-        'mail' => 'mail'
+        'lang'   => 'en',
+        'mail'   => 'mail',
     ],
 
 ];
