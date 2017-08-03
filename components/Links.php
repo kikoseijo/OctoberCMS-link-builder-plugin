@@ -171,6 +171,9 @@ class Links extends ComponentBase
         $this->itemPage = $this->page['itemPage'] = $this->property('itemPage');
         $this->catListPage = $this->page['catListPage'] = $this->property('catListPage');
         $this->page['listTemplate'] = $this->property('listTemplate');
+        $this->page['cats'] = Category::has('items')->get();
+        $this->page['selectedCat'] = $this->property('selectedCat');
+
 
         // find the correct property to select the items with
         $object = null;

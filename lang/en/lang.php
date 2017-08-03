@@ -161,6 +161,10 @@ return [
                     'title'       => 'Category page',
                     'description' => 'Page where portfolio items of the selected category are listed.',
                 ],
+                'listTemplate' => [
+                    'title'       => 'List template',
+                    'description' => 'Choose a template from the list to be used when rendering.',
+                ],
             ],
         ],
     ],
