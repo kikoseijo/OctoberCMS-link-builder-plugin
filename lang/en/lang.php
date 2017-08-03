@@ -107,7 +107,7 @@ return [
 
     'components' => [
         'visit_website' => 'View website',
-        'item' => [
+        'item'          => [
             'name'        => 'Link Item detail',
             'description' => 'Display a link in a page.',
             'properties'  => [

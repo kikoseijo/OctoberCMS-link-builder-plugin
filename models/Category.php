@@ -10,6 +10,7 @@ use Model;
 class Category extends Model
 {
     use \October\Rain\Database\Traits\Validation;
+
     
     public $implement = ['@RainLab.Translate.Behaviors.TranslatableModel'];
 

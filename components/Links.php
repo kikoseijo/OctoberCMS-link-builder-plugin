@@ -174,7 +174,6 @@ class Links extends ComponentBase
         $this->page['cats'] = Category::has('items')->get();
         $this->page['selectedCat'] = $this->property('selectedCat');
 
-
         // find the correct property to select the items with
         $object = null;
         if ($this->property('selectedCat') != null) {
