@@ -14,7 +14,7 @@ Links are categorized with the following structure:
 ------------------------|--------------------
 Title                   | Name of the Link Item
 Category (Optional)     | Category of the Item
-Slug                    | Slug for the item
+Slug                    | Slug for the item url
 Phone (Optional)        | Phone number of the link
 Order (Optional)        | Numeric field to order the items
 LINK (Optional)         | Link/Item URL
