@@ -20,23 +20,18 @@ return [
     'button' => [
         'activate'    => 'Activate',
         'deactivate'  => 'Hide',
-        'active'      => 'Active',
-        'inactive'    => 'Inactive',
         'import'      => 'Import',
         'export'      => 'Export',
-        'unsubscribe' => 'Unsubscribe',
-        'subscribe'   => 'Subscription',
-        'return'      => 'Return',
     ],
 
     'controller' => [
         'view' => [
             'items' => [
-                'new'                 => 'New Item',
-                'breadcrumb_label'    => 'Items',
-                'return'              => 'Return to items list',
-                'creating'            => 'Creating Item...',
-                'delete_confirmation' => 'Do you really want to delete this item?',
+                'new'                 => 'New Link',
+                'breadcrumb_label'    => 'Links',
+                'return'              => 'Return to links list',
+                'creating'            => 'Creating Link...',
+                'delete_confirmation' => 'Do you really want to delete this link?',
             ],
             'categories' => [
                 'new'                 => 'New Category',
@@ -47,17 +42,17 @@ return [
             ],
         ],
         'list' => [
-            'items'      => 'Manage Items',
+            'items'      => 'Manage Link items',
             'categories' => 'Manage Categories',
         ],
         'form' => [
             'items' => [
-                'title'       => 'Item',
-                'create'      => 'Create Item',
-                'update'      => 'Update Item',
-                'flashCreate' => 'The Item has been created successfully',
-                'flashUpdate' => 'The Item has been updated successfully',
-                'flashDelete' => 'The Item has been deleted successfully',
+                'title'       => 'Link item',
+                'create'      => 'Create Link item',
+                'update'      => 'Update Link item',
+                'flashCreate' => 'The Link item has been created successfully',
+                'flashUpdate' => 'The Link item has been updated successfully',
+                'flashDelete' => 'The Link item has been deleted successfully',
             ],
             'categories' => [
                 'title'       => 'Category',
@@ -109,22 +104,22 @@ return [
         'visit_website' => 'View website',
         'item'          => [
             'name'        => 'Link Item detail',
-            'description' => 'Display a link in a page.',
+            'description' => 'Display a Link item in a page.',
             'properties'  => [
                 'item' => [
-                    'title'       => 'Item to show',
-                    'description' => 'Select a item to show. Will be overridden by URL item selection.',
+                    'title'       => 'Link item to show',
+                    'description' => 'Select a Link item to show. Will be overridden by URL item selection.',
                     'none'        => 'None',
                 ],
                 'itemSlug' => [
-                    'title'       => 'Item slug',
-                    'description' => 'Item slug URL identifier',
+                    'title'       => 'Link item slug',
+                    'description' => 'Link item slug URL identifier',
                 ],
             ],
         ],
         'links' => [
             'name'        => 'Links builder list',
-            'description' => 'Display a links list in page.',
+            'description' => 'Display a list fo Link items',
             'properties'  => [
                 'category' => [
                     'title'       => 'Category',
@@ -136,8 +131,8 @@ return [
                     'description' => 'This value is used to determine what page the user is on.',
                 ],
                 'itemsPerPage' => [
-                    'title'             => 'Items per page',
-                    'validationMessage' => 'Invalid format of the items per page value',
+                    'title'             => 'Link items per page',
+                    'validationMessage' => 'Invalid format of the Link items per page value',
                 ],
                 'order' => [
                     'title'       => 'Order',
@@ -147,19 +142,19 @@ return [
                 ],
                 'group' => [
                     'advanced' => 'Advanced',
-                    'links'    => 'Links',
+                    'links'    => 'Link items',
                 ],
                 'selectedCat' => [
                     'title'       => 'Selected category',
                     'description' => 'Don\'t change this value (default: {{ :selected_cat }})',
                 ],
                 'itemPage' => [
-                    'title'       => 'Item page',
-                    'description' => 'Page where portfolio items can be displayed.',
+                    'title'       => 'Link item page',
+                    'description' => 'Page where Link items can be displayed.',
                 ],
                 'catListPage' => [
                     'title'       => 'Category page',
-                    'description' => 'Page where portfolio items of the selected category are listed.',
+                    'description' => 'Page where Link item of the selected category are listed.',
                 ],
                 'listTemplate' => [
                     'title'       => 'List template',
@@ -170,16 +165,6 @@ return [
     ],
 
     'form' => [
-        // General
-        'created' => 'Created at',
-        'updated' => 'Updated at',
-        // Posts
-        'id'                  => 'ID',
-        'title'               => 'Title',
-        'slug'                => 'Slug',
-        'introductory'        => 'Introductory',
-        'content'             => 'Content',
-        'image'               => 'Image',
         'status'              => 'Status',
         'status_published'    => 'Published',
         'status_hide'         => 'Hidden',
@@ -187,19 +172,6 @@ return [
         'status_active'       => 'Active',
         'status_unsubscribed' => 'Unsubscribed',
         'featured'            => 'Featured',
-        'yes'                 => 'Yes',
-        'no'                  => 'No',
-        'view'                => 'view',
-        'published'           => 'Published at',
-        'send'                => 'Send the e-mail to subscribers.',
-        'length'              => 'Length',
-        // Subscribers
-        'name'   => 'Name',
-        'email'  => 'E-mail',
-        'common' => 'Common',
-        'locale' => 'Locale',
-        'lang'   => 'en',
-        'mail'   => 'mail',
     ],
 
 ];
