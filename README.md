@@ -1,4 +1,4 @@
-# octoberCMS-link-builder
+# OctoberCMS Plugin: Links builder manager
 
 [![StyleCI](https://styleci.io/repos/99113402/shield?branch=master)](https://styleci.io/repos/99113402)
 
