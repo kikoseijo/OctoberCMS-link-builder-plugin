@@ -25,64 +25,21 @@ Image (Optional)        | Image related to the item
 
 
 ### Usage
-#### Copy the template
-Copy /plugins/ksoft/links/components/links/default.htm to your themes partials/links folder. Here is the default template, you can format it any way you like.
+#### Copy components templates to your theme directory
+Copy the componets to override them on your themes `partials/links` folder so you can customized and wont be overwriten on updates:
 ~~~
-<div class="container m-t-lg">
-    <div class="row">
-        {% for item in __SELF__.links %}
-            <div class="col-lg-4">
-                <div class="icon-block center-align">
-                    {% if item.link %}
-                        <a {% if item.target %}target="_blank"{% endif %} href="{{ item.link }}" class="blue-grey-text">www</a>
-                    {% endif %}
-                    {% if item.image %}
-                        <img class="img-responsive img-circle " src="/storage/app/media{{ item.image }}" alt="{{ item.title }}" {% if item.title %}title="{{ item.title }}"{% endif %}>
-                    {% endif %}
-                    <a href="{{ item.pageUrl }}">
-                        <h5 class="center">{{ item.title }}</h5>
-                    </a>
-                    <small>posted {{ item.created_at|date('F Y') }} in <a href="{{ item.category.pageUrl }}">{{ item.category.name }}</a></small>
-                    {% if item.phone %}
-                    <p>
-                        {{ item.phone|raw }}
-                    </p>
-                    {% endif %}
-                </div>
-            </div>
-        {% endfor %}
-    </div>
-
-    {% if __SELF__.links.lastPage > 1 %}
-    <div class="row">
-        <div class="col-sm-12">
-            <ul class="pagination">
-                {% if __SELF__.links.currentPage > 1 %}
-                <li><a href="{{ this.page.baseFileName|page({ page: (__SELF__.links.currentPage - 1) }) }}">&larr; Prev</a></li>
-                {% endif %}
-
-                {% for page in 1..__SELF__.links.lastPage %}
-                <li class="{{ __SELF__.links.currentPage == page ? 'active' : null }}">
-                    <a href="{{ this.page.baseFileName|page({ page: page }) }}">{{ page }}</a>
-                </li>
-                {% endfor %}
-
-                {% if __SELF__.links.lastPage > __SELF__.links.currentPage %}
-                <li><a href="{{ this.page.baseFileName|page({ page: (__SELF__.links.currentPage + 1) }) }}">Next &rarr;</a></li>
-                {% endif %}
-            </ul>
-        </div>
-    </div>
-    {% endif %}
-</div>
+`/plugins/ksoft/links/components/links/default.htm`
+`/plugins/ksoft/links/components/links/layout_card.htm`
+`/plugins/ksoft/links/components/links/layout_list.htm`
+`/plugins/ksoft/links/components/links/layout_plain.htm`
+`/plugins/ksoft/links/components/links/layout_table.htm`
 ~~~
 
-#### Links list page
-Now you can embed portfolio in your pages. Just use the portfolio component in your page, select category of your portfolio and place `{% component 'links' %}` anywhere you like.
+#### Page configuration example to show the component
 
 Simple use case:
 ~~~
-title = "Links"
+title = "Links page"
 url = "/links/:selected_cat?/:page?"
 
 [links]
@@ -101,52 +58,23 @@ itemPage = "link"
 
 
 ## Link Item detail component
-The link item detail component is to show off a single link.
-It is also used to show your link when clicking the title of a displayed list links component.
+
+The link item detail component is to show off a single link in a page, it can take an url parameter or you can define the one on the componen settings.
+You should at least have 1 page to redirect the user when they click on the Link item detail page.
 
 ### Usage
 #### Copy the template
-Copy /plugins/ksoft/links/components/item/default.htm to your themes partials/item folder. Here is the default template, you can format it any way you like.
-~~~
-{% set item = __SELF__.item %}
-<div class="container m-t-lg">
-    <div class="row">
-        <div class="col-lg-6">
-            {% if item.image %}
-            <div class="col-sm-6">
-                <img class="img-responsive " src="/storage/app/media{{ item.image }}" alt="{{ item.title }}" {% if item.title %}title="{{ item.title }}"{% endif %}>
-            </div>
-            {% endif %}
-        </div>
-        <div class="col-lg-6">
-            <h1>Portfolio Item {{ item.id }}</h1>
-            <h2>{{ item.title }}</h2>
-            <small>posted {{ item.created_at|date('j m Y') }} in <a href="{{ item.category.pageUrl }}">{{ item.category.name }}</a></small>
-            <div>
-                {% for tag in item.tags %}
-                <a href="{{ tag.pageUrl }}"><span class="label label-default">{{ tag.name }}</span></a>
-                {% endfor %}
-            </div>
-            <p>{{ item.description|raw }}</p>
-            {% if item.link %}
-                <a href="{{ item.link }}" class="btn btn-default" {% if item.target %}target="_blank"{% endif %}>view link web</a>
-            {% endif %}
-            {% if item.phone %}
-                <a href="tel:{{ item.phone }}" class="btn btn-default" target="_blank">{{item.phone}}</a>
-            {% endif %}
-        </div>
-    </div>
-</div>
-~~~
+Copy `/plugins/ksoft/links/components/item/default.htm` to your themes partials/item folder, then, you can customize the way you like.
 
-### Add the component
+
+### Add the component to a page
 Create a page and add the component to it, this way you will be able to follow links to the detail page.
 A simple example:
 ~~~
 title = "Link detail page"
 url = "/link/:item_slug"
 
-[Ksoft\Links\Components\Item item]
+[Ksoft\Links\Components\Item item] \\ Item being a very popular word for components, use the Plugin\Path, for having few, change item for your customized name
 item = 0
 itemSlug = "{{ :item_slug }}"
 catListPage = "links"
