@@ -24,7 +24,7 @@ fields:
         type: checkbox
     enabled:
         label: 'ksoft.links::lang.fields.item.enabled'
-        span: left
+        span: auto
         default: 1
         type: switch
 tabs:

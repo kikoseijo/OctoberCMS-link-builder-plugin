@@ -37,7 +37,7 @@ class Category extends Model
      * @var array Relations
      */
     public $hasMany = [
-        'items' => ['Ksoft\Links\Models\Item'],
+        'items' => ['Ksoft\Links\Models\LinkItem'],
     ];
 
     /**

@@ -3,16 +3,16 @@
 # ===================================
 
 # Model List Column configuration
-list: $/ksoft/links/models/item/columns.yaml
+list: $/ksoft/links/models/linkitem/columns.yaml
 
 # Model Class name
-modelClass: Ksoft\Links\Models\Item
+modelClass: Ksoft\Links\Models\LinkItem
 
 # List Title
 title: ksoft.links::lang.controller.list.items
 
 # Link URL for each record
-recordUrl: ksoft/links/items/update/:id
+recordUrl: ksoft/links/linkitems/update/:id
 
 # Message to display if the list is empty
 noRecordsMessage: backend::lang.list.no_records

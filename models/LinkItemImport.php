@@ -5,7 +5,7 @@ namespace Ksoft\Links\Models;
 use Backend\Models\ImportModel;
 
 
-class ItemImport extends ImportModel
+class LinkItemImport extends ImportModel
 {
     /**
      * @var array The rules to be applied to the data.

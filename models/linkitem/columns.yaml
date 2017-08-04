@@ -22,5 +22,5 @@ columns:
     enabled:
         label     : ksoft.links::lang.columns.item.enabled
         type      : partial
-        path      : ~/plugins/ksoft/links/models/item/_enabled_column.htm
+        path      : ~/plugins/ksoft/links/models/linkitem/_enabled_column.htm
         sortable  : true

@@ -4,7 +4,7 @@ namespace Ksoft\Links\Models;
 
 use Model;
 
-class Item extends Model
+class LinkItem extends Model
 {
     use \October\Rain\Database\Traits\Validation;
 

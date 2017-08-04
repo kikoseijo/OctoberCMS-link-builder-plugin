@@ -22,7 +22,7 @@ class Plugin extends PluginBase
         return [
             'links' => [
                 'label'       => 'ksoft.links::lang.navigation.label',
-                'url'         => Backend::url('ksoft/links/items'),
+                'url'         => Backend::url('ksoft/links/linkitems'),
                 'permissions' => ['ksoft.links.*'],
                 'icon'        => 'icon-link',
                 'order'       => 500,
@@ -30,7 +30,7 @@ class Plugin extends PluginBase
                     'items' => [
                         'label' => 'ksoft.links::lang.navigation.sideMenu.items',
                         'icon'  => 'icon-list',
-                        'url'   => Backend::url('ksoft/links/items'),
+                        'url'   => Backend::url('ksoft/links/linkitems'),
                     ],
                     'categories' => [
                         'label' => 'ksoft.links::lang.navigation.sideMenu.categories',
@@ -52,8 +52,8 @@ class Plugin extends PluginBase
     public function registerComponents()
     {
         return [
-            'Ksoft\Links\Components\Links' => 'links',
-            'Ksoft\Links\Components\Item'  => 'item',
+            'Ksoft\Links\Components\ListLinks' => 'listLinks',
+            'Ksoft\Links\Components\DetailLink'  => 'detailLink',
         ];
     }
 }

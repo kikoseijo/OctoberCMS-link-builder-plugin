@@ -4,7 +4,7 @@
 
 import:
     title: Import Links
-    modelClass: Ksoft\Links\Models\ItemImport
-    list: $/ksoft/links/models/itemimport/columns.yaml
-    redirect: ksoft/links/items
+    modelClass: Ksoft\Links\Models\LinkItemImport
+    list: $/ksoft/links/models/linkitemimport/columns.yaml
+    redirect: ksoft/links/linkitems
     permissions: ksoft.links.import_export

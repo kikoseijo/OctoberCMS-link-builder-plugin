@@ -1,10 +1,10 @@
 <div data-control="toolbar">
     <a
-        href="<?= Backend::url('ksoft/links/items/create') ?>"
+        href="<?= Backend::url('ksoft/links/linkitems/create') ?>"
         class="btn btn-primary oc-icon-plus">
         <?= e(trans('ksoft.links::lang.controller.view.items.new')) ?>
     </a>
-    <?php if (Ksoft\Links\Models\Item::count() > 0): ?>
+    <?php if (Ksoft\Links\Models\LinkItem::count() > 0): ?>
     <div class="btn-group">
         <button
             class="btn btn-default oc-icon-check"
@@ -52,7 +52,7 @@
     <?php if (1==2 && $this->user->hasAccess('ksoft.links.import_export')): ?>
     <div class="btn-group">
         <a
-            href="<?= Backend::url('ksoft/links/items/import') ?>"
+            href="<?= Backend::url('ksoft/links/linkitems/import') ?>"
             class="btn btn-default oc-icon-upload">
             <?= e(trans('ksoft.links::lang.button.import')) ?>
         </a>

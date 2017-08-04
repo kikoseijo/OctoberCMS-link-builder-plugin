@@ -1,0 +1,9 @@
+<ul{% if ulClass != '' %} class="{{ ulClass }}"{% endif %}>
+    {% for item in links %}
+        <li{% if liClass != '' %} class="{{ liClass }}"{% endif %}>
+            <a{% if item.target %} target="_blank"{% endif %} href="{{ item.link }}" title="{{item.title}}"{% if aClass != '' %} class="{{ aClass }}"{% endif %}>
+                {{item.title}}
+            </a>
+        </li>
+    {% endfor %}
+</ul>

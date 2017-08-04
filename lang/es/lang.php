@@ -7,7 +7,7 @@ return [
 
     'plugin' => [
         'name'        => 'Motor de enlaces',
-        'description' => 'Con este plugin puedes adminstrar una lista por categorías de sitios de interes o webs en tu web. También te permite renderizar los listados en tus paginas webs a través de sus componentes.',
+        'description' => 'Muestra un listado de enlaces en tu web o solo 1 usando los componentes.',
     ],
 
     'navigation' => [
@@ -142,8 +142,9 @@ return [
                     'descending'  => 'Descendente',
                 ],
                 'group' => [
-                    'advanced' => 'Avanzado',
-                    'links'    => 'Enlaces',
+                    'advanced'     => 'Avanzado',
+                    'links'        => 'Enlaces',
+                    'menuStyle'    => 'Personaliza el template "Menú"',
                 ],
                 'selectedCat' => [
                     'title'       => 'Seleccione categoría',
@@ -160,6 +161,26 @@ return [
                 'listTemplate' => [
                     'title'       => 'Plantilla para el listado',
                     'description' => 'Selecciona la plantilla que quieras usar para mostrar el listado.',
+                ],
+                'showCategories' => [
+                    'title'       => 'Mostrar categorías',
+                    'description' => 'Deshabilitado no mostrará la navegación por categorías.',
+                ],
+                'showPagination' => [
+                    'title'       => 'Mostrar paginación',
+                    'description' => 'Deshabilitado no mostrará los números de páginas.',
+                ],
+                'ulClass' => [
+                    'title'       => 'Estilo del ul',
+                    'description' => 'El estilo se asignará al "ul" tag. (Solo válido en Menú template)',
+                ],
+                'liClass' => [
+                    'title'       => 'Estilo del li',
+                    'description' => 'El estilo se asignará al "li" tag. (Solo válido en Menú template)',
+                ],
+                'aClass' => [
+                    'title'       => 'Estilo del a',
+                    'description' => 'El estilo se asignará al "a" tag. (Solo válido en Menú template)',
                 ],
             ],
         ],

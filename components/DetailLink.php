@@ -4,17 +4,17 @@ namespace Ksoft\Links\Components;
 
 use Cms\Classes\ComponentBase;
 use Cms\Classes\Page;
-use Ksoft\Links\Models\Item as LinkItem;
+use Ksoft\Links\Models\LinkItem;
 use Lang;
 
-class Item extends ComponentBase
+class DetailLink extends ComponentBase
 {
     /**
      * Value holds the selected item to display.
      *
      * @var
      */
-    public $item;
+    public $linkItem;
 
     /**
      * Reference to the page where items of a category are displayed.
@@ -51,7 +51,6 @@ class Item extends ComponentBase
                 'title'       => 'ksoft.links::lang.components.links.properties.catListPage.title',
                 'description' => 'ksoft.links::lang.components.links.properties.catListPage.description',
                 'type'        => 'dropdown',
-                'default'     => 'links/category',
                 'group'       => 'ksoft.links::lang.components.links.properties.group.links',
             ],
         ];
@@ -95,16 +94,16 @@ class Item extends ComponentBase
 
         // check if a valid object has been created
         if (!$object) {
-            // todo : throw error
-            $this->item = null;
+            // TODO: throw error - or warn user in logs--
+            $this->linkItem = null;
         } else {
             // show the items in the links
-            $this->item = $object;
+            $this->linkItem = $object;
         }
 
         // Add url helper to the items
-        if ($this->item != null) {
-            $this->item = $this->updatePageUrls($this->item);
+        if ($this->linkItem != null) {
+            $this->linkItem = $this->updatePageUrls($this->linkItem);
         }
     }
 
@@ -117,24 +116,24 @@ class Item extends ComponentBase
      */
     protected function loadItemBySlug($selectedItem)
     {
-        $item = LinkItem::where('slug', '=', $selectedItem)->first();
+        $linkItem = LinkItem::where('slug', '=', $selectedItem)->first();
 
-        return $item;
+        return $linkItem;
     }
 
     /**
      * Add PageUrl helpers to all items which can be linked to a
      * dedicated page to display the item.
      *
-     * @param $item
+     * @param $linkItem
      *
      * @return mixed
      */
-    protected function updatePageUrls($item)
+    protected function updatePageUrls($linkItem)
     {
         // add to category
-        $item->category->setPageUrl($this->catListPage, $this->controller);
+        $linkItem->category->setPageUrl($this->catListPage, $this->controller);
 
-        return $item;
+        return $linkItem;
     }
 }

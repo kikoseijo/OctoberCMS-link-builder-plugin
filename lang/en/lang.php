@@ -141,24 +141,45 @@ return [
                     'descending'  => 'Descending',
                 ],
                 'group' => [
-                    'advanced' => 'Advanced',
-                    'links'    => 'Link items',
+                    'advanced'     => 'Advanced',
+                    'links'        => 'Link items',
+                    'menuStyle'    => 'Menu template style',
                 ],
                 'selectedCat' => [
                     'title'       => 'Selected category',
                     'description' => 'Don\'t change this value (default: {{ :selected_cat }})',
                 ],
                 'itemPage' => [
-                    'title'       => 'Link item page',
+                    'title'       => 'Link detail page',
                     'description' => 'Page where Link items can be displayed.',
                 ],
                 'catListPage' => [
-                    'title'       => 'Category page',
+                    'title'       => 'Links page',
                     'description' => 'Page where Link item of the selected category are listed.',
                 ],
                 'listTemplate' => [
-                    'title'       => 'List template',
+                    'title'       => 'Template',
                     'description' => 'Choose a template from the list to be used when rendering.',
+                ],
+                'showCategories' => [
+                    'title'       => 'Show categories',
+                    'description' => 'Disabled will hide categories navbar.',
+                ],
+                'showPagination' => [
+                    'title'       => 'Show pagination',
+                    'description' => 'Disabled will hide pagination links.',
+                ],
+                'ulClass' => [
+                    'title'       => 'ul Class',
+                    'description' => 'Class to be added in the "ul" tag. (Only valid in Menu template)',
+                ],
+                'liClass' => [
+                    'title'       => 'li Class',
+                    'description' => 'Class to be added in the "li" tag. (Only valid in Menu template)',
+                ],
+                'aClass' => [
+                    'title'       => 'Link class',
+                    'description' => 'Class to be added in the "a" tag. (Only valid in Menu template)',
                 ],
             ],
         ],

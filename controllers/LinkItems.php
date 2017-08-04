@@ -6,10 +6,10 @@ use Backend\Classes\Controller;
 use BackendMenu;
 use Flash;
 use Ksoft\Links\Models\Category;
-use Ksoft\Links\Models\Item;
+use Ksoft\Links\Models\LinkItem;
 use Lang;
 
-class Items extends Controller
+class LinkItems extends Controller
 {
     public $implement = [
         'Backend.Behaviors.FormController',
@@ -34,7 +34,7 @@ class Items extends Controller
     {
         if ($checkedIds = post('checked')) {
             foreach ($checkedIds as $itemId) {
-                if (!$table = Item::find($itemId)) {
+                if (!$table = LinkItem::find($itemId)) {
                     continue;
                 }
                 $table->delete();
@@ -49,7 +49,7 @@ class Items extends Controller
     {
         if (($checkedIds = post('checked')) && is_array($checkedIds) && count($checkedIds)) {
             foreach ($checkedIds as $itemId) {
-                if (!$item = Item::where('enabled', '!=', 1)->whereId($itemId)) {
+                if (!$item = LinkItem::where('enabled', '!=', 1)->whereId($itemId)) {
                     continue;
                 }
 
@@ -66,7 +66,7 @@ class Items extends Controller
     {
         if (($checkedIds = post('checked')) && is_array($checkedIds) && count($checkedIds)) {
             foreach ($checkedIds as $itemId) {
-                if (!$item = Item::where('enabled', '!=', 0)->whereId($itemId)) {
+                if (!$item = LinkItem::where('enabled', '!=', 0)->whereId($itemId)) {
                     continue;
                 }
 
@@ -83,7 +83,7 @@ class Items extends Controller
     {
         if (($checkedIds = post('checked')) && is_array($checkedIds) && count($checkedIds)) {
             foreach ($checkedIds as $itemId) {
-                if (!$item = Item::whereId($itemId)) {
+                if (!$item = LinkItem::whereId($itemId)) {
                     continue;
                 }
 
@@ -98,19 +98,19 @@ class Items extends Controller
 
     public function apiLinks()
     {
-        if (\Request::has('perPage')) {
-            $itemsPerPage = \Request::get('perPage');
-        } else {
-            $itemsPerPage = 25;
-        }
+        $itemsPerPage = \Request::has('perPage') ? \Request::get('perPage') : 25;
+        $pageNumber = \Request::has('page') ? \Request::get('page') : 1;
 
-        $linksQuery = Category::has('items')->with('items');
+
+        $linksQuery = Category::whereHas('items', function($q){
+            $q->where('enabled', 1);
+        })->with('items');
 
         if (\Request::has('filter')) {
             $linksQuery->where('slug', \Request::get('filter'));
         }
 
-        $items = $linksQuery->paginate($itemsPerPage);
+        $items = $linksQuery->paginate($itemsPerPage, $pageNumber);
 
         header('Access-Control-Allow-Origin: *');
 
