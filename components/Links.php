@@ -174,7 +174,7 @@ class Links extends ComponentBase
         $this->page['cats'] = Category::has('items')->get();
         $this->page['selectedCat'] = $this->property('selectedCat');
 
-        if ($this->property('listTemplate')=='table') {
+        if ($this->property('listTemplate') == 'table') {
             $this->addJs('https://cdnjs.cloudflare.com/ajax/libs/axios/0.16.2/axios.js');
             $this->addJs('https://cdnjs.cloudflare.com/ajax/libs/vue/2.4.2/vue.js');
         }
