@@ -6,6 +6,7 @@ use Backend\Classes\Controller;
 use BackendMenu;
 use Flash;
 use Ksoft\Links\Models\Item;
+use Ksoft\Links\Models\Category;
 use Lang;
 
 class Items extends Controller
@@ -97,12 +98,28 @@ class Items extends Controller
 
     public function apiLinks()
     {
-        $items = Item::all();
 
-        return ['msg' => 'Getting link builder array success.',
-            'data'    => $items,
-            'count'   => $items->count(),
-        ];
+        if (\Request::has('perPage')) {
+            $itemsPerPage = \Request::get('perPage');
+        } else {
+            $itemsPerPage = 25;
+        }
+
+        $linksQuery = Category::has('items')->with('items');
+
+        if (\Request::has('filter')) {
+            $linksQuery->where('slug',\Request::get('filter'));
+        }
+
+        $items = $linksQuery->paginate($itemsPerPage);
+
+        header('Access-Control-Allow-Origin: *');
+
+        return $items;
+        // ['msg' => 'Getting link builder array success.',
+        //     'data'    => $results,
+        //     'count'   => $items->count(),
+        // ];
     }
 
     /* Functions to allow RESTful actions */

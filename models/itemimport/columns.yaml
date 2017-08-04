@@ -4,7 +4,6 @@
 
 columns:
 
-    #id: ksoft.links::lang.form.id
     title: ksoft.links::lang.columns.item.title
     phone: ksoft.links::lang.columns.item.phone
     link: ksoft.links::lang.columns.item.link

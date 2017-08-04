@@ -96,7 +96,7 @@ class Links extends ComponentBase
                 'description' => 'ksoft.links::lang.components.links.properties.listTemplate.description',
                 'type'        => 'dropdown',
                 'default'     => 'list',
-                'options'     => ['list'=>'List', 'plain'=>'Plain', 'card'=>'Card'],
+                'options'     => ['list'=>'List', 'plain'=>'Plain', 'card'=>'Card', 'table'=>'Table'],
                 'group'       => 'ksoft.links::lang.components.links.properties.group.advanced',
             ],
             'catListPage' => [
@@ -173,6 +173,11 @@ class Links extends ComponentBase
         $this->page['listTemplate'] = $this->property('listTemplate');
         $this->page['cats'] = Category::has('items')->get();
         $this->page['selectedCat'] = $this->property('selectedCat');
+
+        if ($this->property('listTemplate')=='table') {
+            $this->addJs('https://cdnjs.cloudflare.com/ajax/libs/axios/0.16.2/axios.js');
+            $this->addJs('https://cdnjs.cloudflare.com/ajax/libs/vue/2.4.2/vue.js');
+        }
 
         // find the correct property to select the items with
         $object = null;

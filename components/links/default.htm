@@ -12,16 +12,23 @@
         </ul>
         <hr />
     </div>
-    <div class="row">
-        {% for item in __SELF__.links %}
-            {% if listTemplate == 'list' %}
-                {% partial '@layout_list' item=item %}
-            {% elseif listTemplate == 'card' %}
-                {% partial '@layout_card' item=item %}
-            {% else %}
-                {% partial '@layout_plain' item=item %}
-            {% endif %}
-        {% endfor %}
+    <div id="links-list" class="row">
+        {% if listTemplate != 'table' %}
+            {% for item in __SELF__.links %}
+                {% if listTemplate == 'list' %}
+                    {% partial '@layout_list' item=item %}
+                {% elseif listTemplate == 'card' %}
+                    {% partial '@layout_card' item=item %}
+                {% else %}
+                    {% partial '@layout_plain' item=item %}
+                {% endif %}
+            {% endfor %}
+        {% else %}
+            <div class="text-center">
+                <i v-show="loading" class="icon icon-spinner icon-spin icon-large"></i>
+            </div>
+            {% partial '@layout_table' item=item %}
+        {% endif %}
     </div>
 
     {% if __SELF__.links.lastPage > 1 %}
@@ -46,3 +53,120 @@
     </div>
     {% endif %}
 </div>
+
+{% if listTemplate == 'table' %}
+{% put scripts %}
+<script type="text/javascript">
+    new Vue({
+        el: '#links-list',
+        delimiters: ['${', '}'],
+        data: {
+            cats:[],
+            validUrl:[],
+            loading: false
+        },
+
+        filters: {
+            replaceBlankSpace (phone) {
+                return phone.replace(new RegExp(' ', 'g'), '')
+            },
+            validUrl (url) {
+                var regexp = /^(?:(?:https?|ftp):\/\/)(?:\S+(?::\S*)?@)?(?:(?!(?:10|127)(?:\.\d{1,3}){3})(?!(?:169\.254|192\.168)(?:\.\d{1,3}){2})(?!172\.(?:1[6-9]|2\d|3[0-1])(?:\.\d{1,3}){2})(?:[1-9]\d?|1\d\d|2[01]\d|22[0-3])(?:\.(?:1?\d{1,2}|2[0-4]\d|25[0-5])){2}(?:\.(?:[1-9]\d?|1\d\d|2[0-4]\d|25[0-4]))|(?:(?:[a-z\u00a1-\uffff0-9]-*)*[a-z\u00a1-\uffff0-9]+)(?:\.(?:[a-z\u00a1-\uffff0-9]-*)*[a-z\u00a1-\uffff0-9]+)*(?:\.(?:[a-z\u00a1-\uffff]{2,}))\.?)(?::\d{2,5})?(?:[/?#]\S*)?$/i
+                return regexp.test(url)
+            }
+        },
+
+        mounted () {
+            this.loading = true;
+            axios.get('/api/v1/links?filter={{ selectedCat }}').then(response => {
+                this.loading = false
+                this.cats = response.data.data
+            })
+        }
+
+    });
+</script>
+{% endput %}
+<style scoped>
+.table{
+  display: table;
+  table-layout: fixed;
+  width: 100%;
+  padding: 3px;
+}
+
+.caption{
+  display: table-caption;
+  text-align: center;
+  font-weight: bold;
+}
+
+.thead{
+  display: table-header-group;
+  font-weight: bold;
+}
+
+.tbody{
+  display: table-row-group;
+}
+
+.tr{
+  display: table-row;
+}
+
+.th{
+  border-bottom: 1px dashed #cccccc;
+}
+
+.tr:nth-child(odd){
+  background: #f5f5f5;
+}
+
+.th,
+.td{
+  display: table-cell;
+}
+
+.td{
+  padding: 10px 0;
+}
+
+.label{
+  display: none;
+}
+
+@media all and (max-width: 600px){
+  .thead{
+    display: none;
+  }
+  .tr{
+    display: block;
+    margin-bottom: 1.5em;
+    padding: 10px;
+  }
+  .td{
+    display: inherit;
+    padding: 0;
+  }
+  .label{
+    font-weight: bold;
+    display: inline-block;
+    min-width: 120px;
+  }
+}
+.fade-enter-active, .fade-leave-active {
+  transition: opacity 1.5s
+}
+.fade-enter, .fade-leave-to /* .fade-leave-active below version 2.1.8 */ {
+  opacity: 0
+}
+.list-enter-active, .list-leave-active {
+  transition: all 1s;
+}
+.list-enter, .list-leave-to /* .list-leave-active below version 2.1.8 */ {
+  opacity: 0;
+  transform: translateY(30px);
+}
+</style>
+
+{% endif %}

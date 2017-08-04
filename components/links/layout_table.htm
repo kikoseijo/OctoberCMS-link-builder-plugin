@@ -1,0 +1,27 @@
+<div v-show="false == loading" class="phones">
+  <div class="contacts table" aria-labelledby="contacts-caption-text" v-for="cat in cats">
+      <h1 class="caption">${ cat.name }</h1>
+      <div class="contacts-header thead">
+          <span class="th">Name:</span>
+          <span class="th">Phone:</span>
+          <span class="th">Website:</span>
+      </div>
+
+          <transition-group name="list" tag="ul" class="tbody">
+              <li class="tr" itemscope itemtype="http://schema.org/Person" v-bind:key="item.id" v-for="item in cat.items">
+                  <span class="td">
+                      <span class="label">Name:</span>
+                      <span class="data" itemprop="name" aria-labelledby="th-name">${ item.title }</span>
+                  </span>
+                  <span class="td">
+                      <span class="label" v-show="item.phone">Phone:</span>
+                      <span class="data"  v-show="item.phone" itemprop="telephone" aria-labelledby="th-phone"><a v-bind:href="'tel:'+item.phone | replaceBlankSpace">${ item.phone }</a></span>
+                  </span>
+                  <span class="td">
+                      <span class="label" v-show="item.link | validUrl">Website:</span>
+                      <span class="data"  v-show="item.link | validUrl" itemprop="web" aria-labelledby="th-email"><a v-bind:href="item.link">www</a></span>
+                  </span>
+              </li>
+          </transition-group>
+  </div>
+</div>
