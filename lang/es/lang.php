@@ -2,7 +2,7 @@
 
 return [
 
-    'links' => 'Enlaces',
+    'links'      => 'Enlaces',
     'extra_data' => 'Datos extra',
 
     'plugin' => [

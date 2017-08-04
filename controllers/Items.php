@@ -5,8 +5,8 @@ namespace Ksoft\Links\Controllers;
 use Backend\Classes\Controller;
 use BackendMenu;
 use Flash;
-use Ksoft\Links\Models\Item;
 use Ksoft\Links\Models\Category;
+use Ksoft\Links\Models\Item;
 use Lang;
 
 class Items extends Controller
@@ -98,7 +98,6 @@ class Items extends Controller
 
     public function apiLinks()
     {
-
         if (\Request::has('perPage')) {
             $itemsPerPage = \Request::get('perPage');
         } else {
@@ -108,7 +107,7 @@ class Items extends Controller
         $linksQuery = Category::has('items')->with('items');
 
         if (\Request::has('filter')) {
-            $linksQuery->where('slug',\Request::get('filter'));
+            $linksQuery->where('slug', \Request::get('filter'));
         }
 
         $items = $linksQuery->paginate($itemsPerPage);
