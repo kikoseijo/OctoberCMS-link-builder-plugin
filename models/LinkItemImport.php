@@ -4,7 +4,6 @@ namespace Ksoft\Links\Models;
 
 use Backend\Models\ImportModel;
 
-
 class LinkItemImport extends ImportModel
 {
     /**

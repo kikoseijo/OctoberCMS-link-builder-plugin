@@ -205,7 +205,7 @@ class ListLinks extends ComponentBase
         $this->page['liClass'] = $this->property('liClass');
         $this->page['ulClass'] = $this->property('ulClass');
         $this->page['aClass'] = $this->property('aClass');
-        $this->page['cats'] = Category::whereHas('items', function($q){
+        $this->page['cats'] = Category::whereHas('items', function ($q) {
             $q->where('enabled', 1);
         })->get();
         $this->page['selectedCat'] = $this->property('selectedCat');
@@ -227,13 +227,13 @@ class ListLinks extends ComponentBase
         if (!$object) {
             // display all items
             if ($this->property('listTemplate') == 'menu') {
-                $this->links = LinkItem::with('category')->where('enabled',1)->orderBy('order', $this->property('order'))->get();
+                $this->links = LinkItem::with('category')->where('enabled', 1)->orderBy('order', $this->property('order'))->get();
             } else {
-                $this->links = LinkItem::with('category')->where('enabled',1)->orderBy('order', $this->property('order'))->paginate($this->property('itemsPerPage'), $this->property('pageNumber'));
+                $this->links = LinkItem::with('category')->where('enabled', 1)->orderBy('order', $this->property('order'))->paginate($this->property('itemsPerPage'), $this->property('pageNumber'));
             }
         } else {
             // show the items in the links
-            $this->links = $object->items()->where('enabled',1)
+            $this->links = $object->items()->where('enabled', 1)
                 ->orderBy('order', $this->property('order'))->paginate($this->property('itemsPerPage'), $this->property('pageNumber'));
         }
 
@@ -241,8 +241,6 @@ class ListLinks extends ComponentBase
         if ($this->links != null) {
             $this->links = $this->updatePageUrls($this->links);
         }
-
-
     }
 
     /**
