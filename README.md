@@ -2,8 +2,8 @@
 
 [![StyleCI](https://styleci.io/repos/99113402/shield?branch=master)](https://styleci.io/repos/99113402)
 
-This plugin allows you to show off a list of `categorized links` on your website. It also can be used to show a list of interests or a single link in any page with the component.
-It comes with `4 diferent list templates` to use when showing the list of link items in your pages: List View, Table View, Card View (bootstrap4) and Plain.
+This plugin allows you to show off a list of `categorized links` on your website. It also can be used to show a list of interests or a single link in any page with the component.  
+It comes with `4 diferent list templates` to use when showing the list of link items in your pages: List View, Table View, Card View (bootstrap4) and Plain.  
 The table view its a Vue.js mini script that will load the lists from the links API endpoint. (Its for demo purposes on how the api works)
 
 > To use the API enpoints build in `apiEnabled` must be set to true in the config.php
