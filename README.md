@@ -96,8 +96,10 @@ There is no priority on this list, if you have any request please open an issue 
 
 
 
-> This plugin is in active development, push request are welcome
+> This plugin is in active development, merge request are welcome
 
 
 
-  
+
+
+      
