@@ -15,10 +15,11 @@ class LinkItem extends Model
     public $rules = [
         'title' => 'required|max:50',
         'order' => 'numeric',
+        'link' => 'url',
     ];
 
     public $customMessages = [
-        'link.url' => 'The link format is invalid (http:// or https://)',
+        'linkItem.link' => 'The link format is invalid (http:// or https://)',
     ];
 
     /**

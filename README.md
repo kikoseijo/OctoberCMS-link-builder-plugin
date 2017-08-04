@@ -85,7 +85,6 @@ catListPage = "links"
 Another way to use the item component is to show single links items in any page. Just add the item component in your page, select the item from your link builder and place `{% component 'links' %}` anywhere you like.
 Use the same example as above with any URL you like to use and select from the item component the correct 'Item to show' and save the page.
 
-> This plugin is in active development, push request are welcome
 
 ## Future Roadmap
 
@@ -94,3 +93,11 @@ There is no priority on this list, if you have any request please open an issue 
 - Backlink checker. Using OctoberCMS cron system to check backlinks on referrals pages.
 - Links importer. Using OctoberCMS importing features (50% done).
 - Add more translations. (If you have to translate the plugin and want to help other users...send me!)
+
+
+
+> This plugin is in active development, push request are welcome
+
+
+
+  
