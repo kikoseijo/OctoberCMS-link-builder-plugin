@@ -14,7 +14,7 @@ class Plugin extends PluginBase
             'description' => 'ksoft.links::lang.plugin.description',
             'author'      => 'Kiko Seijo',
             'icon'        => 'icon-cubes',
-            'homepage'    => 'https://github.com/kikoseijo/OctoberCMS-link-builder-plugin'
+            'homepage'    => 'https://github.com/kikoseijo/OctoberCMS-link-builder-plugin',
         ];
     }
 
@@ -53,7 +53,7 @@ class Plugin extends PluginBase
     public function registerComponents()
     {
         return [
-            'Ksoft\Links\Components\ListLinks' => 'listLinks',
+            'Ksoft\Links\Components\ListLinks'   => 'listLinks',
             'Ksoft\Links\Components\DetailLink'  => 'detailLink',
         ];
     }

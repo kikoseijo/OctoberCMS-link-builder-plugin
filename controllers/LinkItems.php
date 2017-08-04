@@ -101,8 +101,7 @@ class LinkItems extends Controller
         $itemsPerPage = \Request::has('perPage') ? \Request::get('perPage') : 25;
         $pageNumber = \Request::has('page') ? \Request::get('page') : 1;
 
-
-        $linksQuery = Category::whereHas('items', function($q){
+        $linksQuery = Category::whereHas('items', function ($q) {
             $q->where('enabled', 1);
         })->with('items');
 

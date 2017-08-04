@@ -15,7 +15,7 @@ class LinkItem extends Model
     public $rules = [
         'title' => 'required|max:50',
         'order' => 'numeric',
-        'link' => 'url',
+        'link'  => 'url',
     ];
 
     public $customMessages = [
