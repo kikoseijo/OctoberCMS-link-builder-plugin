@@ -2,8 +2,8 @@
 
 namespace Ksoft\Links\Controllers;
 
-use Backend\Classes\Controller;
 use BackendMenu;
+use Backend\Classes\Controller;
 use Flash;
 use Ksoft\Links\Models\Category;
 use Ksoft\Links\Models\LinkItem;
@@ -11,17 +11,32 @@ use Lang;
 
 class LinkItems extends Controller
 {
+    /**
+     * @var array
+     */
     public $implement = [
         'Backend.Behaviors.FormController',
         'Backend.Behaviors.ListController',
-        'Backend.Behaviors.ImportExportController',
+        'Backend.Behaviors.ImportExportController'
     ];
 
+    /**
+     * @var string
+     */
     public $importExportConfig = 'config_import_export.yaml';
 
+    /**
+     * @var string
+     */
     public $formConfig = 'config_form.yaml';
+    /**
+     * @var string
+     */
     public $listConfig = 'config_list.yaml';
 
+    /**
+     * @var array
+     */
     public $requiredPermissions = ['ksoft.links.links'];
 
     public function __construct()
@@ -29,11 +44,13 @@ class LinkItems extends Controller
         parent::__construct();
         BackendMenu::setContext('Ksoft.Links', 'links', 'items');
     }
+
     /**
      * Delete all selected link items in the table view. ADMIN
      * @return array The list element selector as the key, and the list contents are the value.
      */
-    public function index_onDelete()   {
+    public function index_onDelete()
+    {
         if ($checkedIds = post('checked')) {
             foreach ($checkedIds as $itemId) {
                 if (!$table = LinkItem::find($itemId)) {
@@ -46,6 +63,7 @@ class LinkItems extends Controller
 
         return $this->listRefresh();
     }
+
     /**
      * Enable Link items on the listView Table
      * @return array The list element selector as the key, and the list contents are the value.
@@ -66,11 +84,13 @@ class LinkItems extends Controller
 
         return $this->listRefresh();
     }
+
     /**
      * Set enabled = 0 on table view actions.
      * @return array The list element selector as the key, and the list contents are the value.
      */
-    public function onDisableItems(){
+    public function onDisableItems()
+    {
         if (($checkedIds = post('checked')) && is_array($checkedIds) && count($checkedIds)) {
             foreach ($checkedIds as $itemId) {
                 if (!$item = LinkItem::where('enabled', '!=', 0)->whereId($itemId)) {
@@ -85,6 +105,7 @@ class LinkItems extends Controller
 
         return $this->listRefresh();
     }
+
     /**
      * Delete Table list view items
      * @return array The list element selector as the key, and the list contents are the value.
@@ -105,6 +126,7 @@ class LinkItems extends Controller
 
         return $this->listRefresh();
     }
+
     /**
      * Api endpoints to show the link ites with categories
      * @return array Laravel paginated object
@@ -145,16 +167,20 @@ class LinkItems extends Controller
         return [];
     }
 
+    /**
+     * @param $method
+     * @param $parameters
+     */
     public function callAction($method, $parameters = false)
     {
         //dd($method);
-      $action = 'api'.ucfirst($method);
+        $action = 'api'.ucfirst($method);
         if (method_exists($this, $action) && is_callable([$this, $action])) {
             return call_user_func_array([$this, $action], $parameters);
         } else {
             return response()->json([
-            'message' => 'Not Found',
-        ], 404);
+                'message' => 'Not Found'
+            ], 404);
         }
     }
 }

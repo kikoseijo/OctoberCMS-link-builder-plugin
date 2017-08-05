@@ -21,7 +21,7 @@ class Category extends Model
      */
     public $rules = [
         'name'  => 'required|max:50',
-        'order' => 'numeric',
+        'order' => 'numeric'
     ];
 
     /**
@@ -43,7 +43,7 @@ class Category extends Model
      * @var array Relations
      */
     public $hasMany = [
-        'items' => ['Ksoft\Links\Models\LinkItem'],
+        'items' => ['Ksoft\Links\Models\LinkItem']
     ];
 
     /**
@@ -57,7 +57,7 @@ class Category extends Model
     public function setPageUrl($pageName, $controller)
     {
         $params = [
-            'selected_cat' => $this->slug,
+            'selected_cat' => $this->slug
         ];
 
         return $this->pageUrl = $controller->pageUrl($pageName, $params);

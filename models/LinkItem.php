@@ -3,6 +3,7 @@
 namespace Ksoft\Links\Models;
 
 use Model;
+
 /**
  * LinkItem Model.
  */
@@ -29,21 +30,21 @@ class LinkItem extends Model
     public $rules = [
         'title' => 'required|max:50',
         'order' => 'numeric',
-        'link'  => 'url',
+        'link'  => 'url'
     ];
 
     /**
      * @var array
      */
     public $customMessages = [
-        'linkItem.link' => 'The link format is invalid (http:// or https://)',
+        'linkItem.link' => 'The link format is invalid (http:// or https://)'
     ];
 
     /**
      * @var array Relations
      */
     public $belongsTo = [
-        'category' => ['Ksoft\Links\Models\Category'],
+        'category' => ['Ksoft\Links\Models\Category']
     ];
 
     /**
@@ -57,7 +58,7 @@ class LinkItem extends Model
     public function setPageUrl($pageName, $controller)
     {
         $params = [
-            'item_slug' => $this->slug,
+            'item_slug' => $this->slug
         ];
 
         return $this->pageUrl = $controller->pageUrl($pageName, $params);
@@ -69,9 +70,9 @@ class LinkItem extends Model
     public function imageUrl($size = '300x220')
     {
         if ($this->image != '') {
-            return '/storage/app/media' . $this->image;
+            return '/storage/app/media'.$this->image;
         } else {
-            return 'http://via.placeholder.com/' . $size . '?text=' . $this->slug;
+            return 'http://via.placeholder.com/'.$size.'?text='.$this->slug;
         }
     }
 }
