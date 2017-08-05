@@ -3,21 +3,38 @@
 namespace Ksoft\Links\Models;
 
 use Model;
-
+/**
+ * LinkItem Model.
+ */
 class LinkItem extends Model
 {
     use \October\Rain\Database\Traits\Validation;
 
+    /**
+     * @var string
+     */
     public $table = 'ksoft_links_items';
+    /**
+     * @var array
+     */
     public $implement = ['@RainLab.Translate.Behaviors.TranslatableModel'];
+    /**
+     * @var array
+     */
     public $translatable = ['title'];
 
+    /**
+     * @var array
+     */
     public $rules = [
         'title' => 'required|max:50',
         'order' => 'numeric',
         'link'  => 'url',
     ];
 
+    /**
+     * @var array
+     */
     public $customMessages = [
         'linkItem.link' => 'The link format is invalid (http:// or https://)',
     ];
@@ -46,12 +63,15 @@ class LinkItem extends Model
         return $this->pageUrl = $controller->pageUrl($pageName, $params);
     }
 
+    /**
+     * @param $size
+     */
     public function imageUrl($size = '300x220')
     {
         if ($this->image != '') {
-            return '/storage/app/media'.$this->image;
+            return '/storage/app/media' . $this->image;
         } else {
-            return 'http://via.placeholder.com/'.$size.'?text='.$this->slug;
+            return 'http://via.placeholder.com/' . $size . '?text=' . $this->slug;
         }
     }
 }

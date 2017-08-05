@@ -29,9 +29,11 @@ class LinkItems extends Controller
         parent::__construct();
         BackendMenu::setContext('Ksoft.Links', 'links', 'items');
     }
-
-    public function index_onDelete()
-    {
+    /**
+     * Delete all selected link items in the table view. ADMIN
+     * @return array The list element selector as the key, and the list contents are the value.
+     */
+    public function index_onDelete()   {
         if ($checkedIds = post('checked')) {
             foreach ($checkedIds as $itemId) {
                 if (!$table = LinkItem::find($itemId)) {
@@ -44,7 +46,10 @@ class LinkItems extends Controller
 
         return $this->listRefresh();
     }
-
+    /**
+     * Enable Link items on the listView Table
+     * @return array The list element selector as the key, and the list contents are the value.
+     */
     public function onEnableItems()
     {
         if (($checkedIds = post('checked')) && is_array($checkedIds) && count($checkedIds)) {
@@ -61,9 +66,11 @@ class LinkItems extends Controller
 
         return $this->listRefresh();
     }
-
-    public function onDisableItems()
-    {
+    /**
+     * Set enabled = 0 on table view actions.
+     * @return array The list element selector as the key, and the list contents are the value.
+     */
+    public function onDisableItems(){
         if (($checkedIds = post('checked')) && is_array($checkedIds) && count($checkedIds)) {
             foreach ($checkedIds as $itemId) {
                 if (!$item = LinkItem::where('enabled', '!=', 0)->whereId($itemId)) {
@@ -78,7 +85,10 @@ class LinkItems extends Controller
 
         return $this->listRefresh();
     }
-
+    /**
+     * Delete Table list view items
+     * @return array The list element selector as the key, and the list contents are the value.
+     */
     public function onRemoveItem()
     {
         if (($checkedIds = post('checked')) && is_array($checkedIds) && count($checkedIds)) {
@@ -95,7 +105,10 @@ class LinkItems extends Controller
 
         return $this->listRefresh();
     }
-
+    /**
+     * Api endpoints to show the link ites with categories
+     * @return array Laravel paginated object
+     */
     public function apiLinks()
     {
         $itemsPerPage = \Request::has('perPage') ? \Request::get('perPage') : 25;
@@ -114,10 +127,6 @@ class LinkItems extends Controller
         header('Access-Control-Allow-Origin: *');
 
         return $items;
-        // ['msg' => 'Getting link builder array success.',
-        //     'data'    => $results,
-        //     'count'   => $items->count(),
-        // ];
     }
 
     /* Functions to allow RESTful actions */

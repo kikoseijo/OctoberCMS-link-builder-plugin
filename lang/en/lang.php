@@ -18,15 +18,15 @@ return [
     ],
 
     'button' => [
-        'activate'    => 'Activate',
-        'deactivate'  => 'Hide',
-        'import'      => 'Import',
-        'export'      => 'Export',
+        'activate'   => 'Activate',
+        'deactivate' => 'Hide',
+        'import'     => 'Import',
+        'export'     => 'Export',
     ],
 
     'controller' => [
         'view' => [
-            'items' => [
+            'items'      => [
                 'new'                 => 'New Link',
                 'breadcrumb_label'    => 'Links',
                 'return'              => 'Return to links list',
@@ -46,7 +46,7 @@ return [
             'categories' => 'Manage Categories',
         ],
         'form' => [
-            'items' => [
+            'items'      => [
                 'title'       => 'Link item',
                 'create'      => 'Create Link item',
                 'update'      => 'Update Link item',
@@ -66,7 +66,7 @@ return [
     ],
 
     'columns' => [
-        'item' => [
+        'item'     => [
             'title'   => 'Title',
             'link'    => 'Link',
             'image'   => 'Image',
@@ -83,7 +83,7 @@ return [
     ],
 
     'fields' => [
-        'item' => [
+        'item'     => [
             'title'   => 'Title',
             'link'    => 'Link',
             'image'   => 'Image',
@@ -106,7 +106,7 @@ return [
             'name'        => 'Link Item detail',
             'description' => 'Display a Link item in a page.',
             'properties'  => [
-                'item' => [
+                'item'     => [
                     'title'       => 'Link item to show',
                     'description' => 'Select a Link item to show. Will be overridden by URL item selection.',
                     'none'        => 'None',
@@ -117,47 +117,47 @@ return [
                 ],
             ],
         ],
-        'links' => [
+        'links'         => [
             'name'        => 'Links builder list',
             'description' => 'Display a list fo Link items',
             'properties'  => [
-                'category' => [
+                'category'       => [
                     'title'       => 'Category',
                     'placeholder' => 'Select Category',
                     'all'         => 'All',
                 ],
-                'pageNumber' => [
+                'pageNumber'     => [
                     'title'       => 'Page Number',
                     'description' => 'This value is used to determine what page the user is on.',
                 ],
-                'itemsPerPage' => [
+                'itemsPerPage'   => [
                     'title'             => 'Link items per page',
                     'validationMessage' => 'Invalid format of the Link items per page value',
                 ],
-                'order' => [
+                'order'          => [
                     'title'       => 'Order',
                     'placeholder' => 'Select Order',
                     'ascending'   => 'Ascending',
                     'descending'  => 'Descending',
                 ],
-                'group' => [
-                    'advanced'     => 'Advanced',
-                    'links'        => 'Link items',
-                    'menuStyle'    => 'Menu template style',
+                'group'          => [
+                    'advanced'  => 'Advanced',
+                    'links'     => 'Link items',
+                    'menuStyle' => 'Menu template style',
                 ],
-                'selectedCat' => [
+                'selectedCat'    => [
                     'title'       => 'Selected category',
                     'description' => 'Don\'t change this value (default: {{ :selected_cat }})',
                 ],
-                'itemPage' => [
+                'itemPage'       => [
                     'title'       => 'Link detail page',
                     'description' => 'Page where Link items can be displayed.',
                 ],
-                'catListPage' => [
+                'catListPage'    => [
                     'title'       => 'Links page',
                     'description' => 'Page where Link item of the selected category are listed.',
                 ],
-                'listTemplate' => [
+                'listTemplate'   => [
                     'title'       => 'Template',
                     'description' => 'Choose a template from the list to be used when rendering.',
                 ],
@@ -169,15 +169,15 @@ return [
                     'title'       => 'Show pagination',
                     'description' => 'Disabled will hide pagination links.',
                 ],
-                'ulClass' => [
+                'ulClass'        => [
                     'title'       => 'ul Class',
                     'description' => 'Class to be added in the "ul" tag. (Only valid in Menu template)',
                 ],
-                'liClass' => [
+                'liClass'        => [
                     'title'       => 'li Class',
                     'description' => 'Class to be added in the "li" tag. (Only valid in Menu template)',
                 ],
-                'aClass' => [
+                'aClass'         => [
                     'title'       => 'Link class',
                     'description' => 'Class to be added in the "a" tag. (Only valid in Menu template)',
                 ],

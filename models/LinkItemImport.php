@@ -11,6 +11,10 @@ class LinkItemImport extends ImportModel
      */
     public $rules = [];
 
+    /**
+     * @param $results
+     * @param $sessionKey
+     */
     public function importData($results, $sessionKey = null)
     {
         if ($this->auto_create_lists) {

@@ -11,8 +11,14 @@ class Category extends Model
 {
     use \October\Rain\Database\Traits\Validation;
 
+    /**
+     * @var array
+     */
     public $implement = ['@RainLab.Translate.Behaviors.TranslatableModel'];
 
+    /**
+     * @var array
+     */
     public $rules = [
         'name'  => 'required|max:50',
         'order' => 'numeric',

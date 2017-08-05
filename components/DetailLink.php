@@ -34,13 +34,13 @@ class DetailLink extends ComponentBase
     public function defineProperties()
     {
         return [
-            'item' => [
+            'item'        => [
                 'title'       => 'ksoft.links::lang.components.item.properties.item.title',
                 'description' => 'ksoft.links::lang.components.item.properties.item.description',
                 'type'        => 'dropdown',
                 'default'     => '1',
             ],
-            'itemSlug' => [
+            'itemSlug'    => [
                 'title'       => 'ksoft.links::lang.components.item.properties.itemSlug.title',
                 'description' => 'ksoft.links::lang.components.item.properties.itemSlug.description',
                 'type'        => 'string',
@@ -63,7 +63,7 @@ class DetailLink extends ComponentBase
      */
     public function getItemOptions()
     {
-        $categories = LinkItem::lists('title', 'slug');
+        $categories    = LinkItem::lists('title', 'slug');
         $categories[0] = Lang::get('ksoft.links::lang.components.item.properties.item.none');
 
         return $categories;

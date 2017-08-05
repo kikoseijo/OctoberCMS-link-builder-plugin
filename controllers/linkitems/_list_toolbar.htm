@@ -1,8 +1,8 @@
 <div data-control="toolbar">
     <a
-        href="<?= Backend::url('ksoft/links/linkitems/create') ?>"
+        href="<?=Backend::url('ksoft/links/linkitems/create')?>"
         class="btn btn-primary oc-icon-plus">
-        <?= e(trans('ksoft.links::lang.controller.view.items.new')) ?>
+        <?=e(trans('ksoft.links::lang.controller.view.items.new'))?>
     </a>
     <?php if (Ksoft\Links\Models\LinkItem::count() > 0): ?>
     <div class="btn-group">
@@ -17,7 +17,7 @@
             data-trigger=".control-list input[type=checkbox]"
             data-trigger-condition="checked"
             data-stripe-load-indicator>
-            <?= e(trans('ksoft.links::lang.button.activate')) ?>
+            <?=e(trans('ksoft.links::lang.button.activate'))?>
         </button>
         <button
             class="btn btn-default oc-icon-eye-slash"
@@ -30,7 +30,7 @@
             data-trigger=".control-list input[type=checkbox]"
             data-trigger-condition="checked"
             data-stripe-load-indicator>
-            <?= e(trans('ksoft.links::lang.button.deactivate')) ?>
+            <?=e(trans('ksoft.links::lang.button.deactivate'))?>
         </button>
     </div>
     <button
@@ -40,22 +40,22 @@
             checked: $('.control-list').listWidget('getChecked')
         })"
         data-request="onRemoveItem"
-        data-request-confirm="<?= e(trans('ksoft.links::lang.controller.view.items.delete_confirmation')) ?>"
+        data-request-confirm="<?=e(trans('ksoft.links::lang.controller.view.items.delete_confirmation'))?>"
         data-trigger-action="enable"
         data-trigger=".control-list input[type=checkbox]"
         data-trigger-condition="checked"
         data-stripe-load-indicator>
-        <?= e(trans('system::lang.plugins.remove')) ?>
+        <?=e(trans('system::lang.plugins.remove'))?>
     </button>
-    <?php endif ?>
+    <?php endif?>
     <!-- //TODO: Fix Importer -->
-    <?php if (1==2 && $this->user->hasAccess('ksoft.links.import_export')): ?>
+    <?php if (1 == 2 && $this->user->hasAccess('ksoft.links.import_export')): ?>
     <div class="btn-group">
         <a
-            href="<?= Backend::url('ksoft/links/linkitems/import') ?>"
+            href="<?=Backend::url('ksoft/links/linkitems/import')?>"
             class="btn btn-default oc-icon-upload">
-            <?= e(trans('ksoft.links::lang.button.import')) ?>
+            <?=e(trans('ksoft.links::lang.button.import'))?>
         </a>
     </div>
-    <?php endif ?>
+    <?php endif?>
 </div>

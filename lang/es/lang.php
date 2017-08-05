@@ -19,15 +19,15 @@ return [
     ],
 
     'button' => [
-        'activate'    => 'Activar',
-        'deactivate'  => 'Ocultar',
-        'import'      => 'Importar',
-        'export'      => 'Exportar',
+        'activate'   => 'Activar',
+        'deactivate' => 'Ocultar',
+        'import'     => 'Importar',
+        'export'     => 'Exportar',
     ],
 
     'controller' => [
         'view' => [
-            'items' => [
+            'items'      => [
                 'new'                 => 'Nuevo enlace',
                 'breadcrumb_label'    => 'Enlaces',
                 'return'              => 'Volver al listado de enlaces',
@@ -47,7 +47,7 @@ return [
             'categories' => 'Administrar categorías',
         ],
         'form' => [
-            'items' => [
+            'items'      => [
                 'title'       => 'Enlace',
                 'create'      => 'Crear nuevo Enlace',
                 'update'      => 'Actualizar enlace',
@@ -67,7 +67,7 @@ return [
     ],
 
     'columns' => [
-        'item' => [
+        'item'     => [
             'title'   => 'Titulo',
             'link'    => 'Enlace',
             'image'   => 'Imágen',
@@ -84,7 +84,7 @@ return [
     ],
 
     'fields' => [
-        'item' => [
+        'item'     => [
             'title'   => 'Titulo',
             'link'    => 'Url del Enlace',
             'image'   => 'Imágen',
@@ -107,7 +107,7 @@ return [
             'name'        => 'Detalles del enlace',
             'description' => 'Mostrar enlace en la web.',
             'properties'  => [
-                'item' => [
+                'item'     => [
                     'title'       => 'Enlace a mostrar',
                     'description' => 'Seleccione un enlace a mostrar. Será sobre-escrito por una posible variable en la url.',
                     'none'        => 'Ninguno',
@@ -118,47 +118,47 @@ return [
                 ],
             ],
         ],
-        'links' => [
+        'links'         => [
             'name'        => 'Listado de enlaces',
             'description' => 'Muestra un listado de enlaces',
             'properties'  => [
-                'category' => [
+                'category'       => [
                     'title'       => 'Categoría',
                     'placeholder' => 'Seleccione categoría',
                     'all'         => 'Todas',
                 ],
-                'pageNumber' => [
+                'pageNumber'     => [
                     'title'       => 'Número de página',
                     'description' => 'Esta variable se usa para determinar el número de página en la que se encuentra el usuario.',
                 ],
-                'itemsPerPage' => [
+                'itemsPerPage'   => [
                     'title'             => 'Número de enlaces por página',
                     'validationMessage' => 'El formato del valor del número de página ha de ser numérico',
                 ],
-                'order' => [
+                'order'          => [
                     'title'       => 'Orden',
                     'placeholder' => 'Seleccione el orden',
                     'ascending'   => 'Ascendente',
                     'descending'  => 'Descendente',
                 ],
-                'group' => [
-                    'advanced'     => 'Avanzado',
-                    'links'        => 'Enlaces',
-                    'menuStyle'    => 'Personaliza el template "Menú"',
+                'group'          => [
+                    'advanced'  => 'Avanzado',
+                    'links'     => 'Enlaces',
+                    'menuStyle' => 'Personaliza el template "Menú"',
                 ],
-                'selectedCat' => [
+                'selectedCat'    => [
                     'title'       => 'Seleccione categoría',
                     'description' => 'No modificar este valor (default: {{ :selected_cat }})',
                 ],
-                'itemPage' => [
+                'itemPage'       => [
                     'title'       => 'Página de detalle',
                     'description' => 'Página donde se ha incluido el componente de vista en detalle.',
                 ],
-                'catListPage' => [
+                'catListPage'    => [
                     'title'       => 'Listado de enlaces',
                     'description' => 'Página donde se ha includio el componente de listado de enlaces.',
                 ],
-                'listTemplate' => [
+                'listTemplate'   => [
                     'title'       => 'Plantilla para el listado',
                     'description' => 'Selecciona la plantilla que quieras usar para mostrar el listado.',
                 ],
@@ -170,15 +170,15 @@ return [
                     'title'       => 'Mostrar paginación',
                     'description' => 'Deshabilitado no mostrará los números de páginas.',
                 ],
-                'ulClass' => [
+                'ulClass'        => [
                     'title'       => 'Estilo del ul',
                     'description' => 'El estilo se asignará al "ul" tag. (Solo válido en Menú template)',
                 ],
-                'liClass' => [
+                'liClass'        => [
                     'title'       => 'Estilo del li',
                     'description' => 'El estilo se asignará al "li" tag. (Solo válido en Menú template)',
                 ],
-                'aClass' => [
+                'aClass'         => [
                     'title'       => 'Estilo del a',
                     'description' => 'El estilo se asignará al "a" tag. (Solo válido en Menú template)',
                 ],
@@ -187,12 +187,12 @@ return [
     ],
 
     'form' => [
-        'status'              => 'Estado',
-        'status_published'    => 'Publicado',
-        'status_hide'         => 'Oculto',
-        'status_draft'        => 'Borrador',
-        'status_active'       => 'Activo',
-        'featured'            => 'Destacado',
+        'status'           => 'Estado',
+        'status_published' => 'Publicado',
+        'status_hide'      => 'Oculto',
+        'status_draft'     => 'Borrador',
+        'status_active'    => 'Activo',
+        'featured'         => 'Destacado',
     ],
 
 ];

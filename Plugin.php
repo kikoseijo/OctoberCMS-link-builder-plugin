@@ -4,7 +4,9 @@ namespace Ksoft\Links;
 
 use Backend;
 use System\Classes\PluginBase;
-
+/**
+ * OctoberCMS - links builder plugin.
+ */
 class Plugin extends PluginBase
 {
     public function pluginDetails()
@@ -28,7 +30,7 @@ class Plugin extends PluginBase
                 'icon'        => 'icon-link',
                 'order'       => 500,
                 'sideMenu'    => [
-                    'items' => [
+                    'items'      => [
                         'label' => 'ksoft.links::lang.navigation.sideMenu.items',
                         'icon'  => 'icon-list',
                         'url'   => Backend::url('ksoft/links/linkitems'),
@@ -53,8 +55,8 @@ class Plugin extends PluginBase
     public function registerComponents()
     {
         return [
-            'Ksoft\Links\Components\ListLinks'   => 'listLinks',
-            'Ksoft\Links\Components\DetailLink'  => 'detailLink',
+            'Ksoft\Links\Components\ListLinks'  => 'listLinks',
+            'Ksoft\Links\Components\DetailLink' => 'detailLink',
         ];
     }
 }

@@ -1,16 +1,16 @@
-<?php Block::put('breadcrumb') ?>
+<?php Block::put('breadcrumb')?>
     <ul>
-        <li><a href="<?= Backend::url('ksoft/links/posts') ?>"><?= e(trans('ksoft.links::lang.menu.items')) ?></a></li>
-        <li><?= e(trans($this->pageTitle)) ?></li>
+        <li><a href="<?=Backend::url('ksoft/links/posts')?>"><?=e(trans('ksoft.links::lang.menu.items'))?></a></li>
+        <li><?=e(trans($this->pageTitle))?></li>
     </ul>
-<?php Block::endPut() ?>
+<?php Block::endPut()?>
 
-<?= Form::open(['class' => 'layout']) ?>
+<?=Form::open(['class' => 'layout'])?>
 
     <div style="padding:0 20px">
 
         <div class="layout-row">
-            <?= $this->importRender() ?>
+            <?=$this->importRender()?>
         </div>
 
         <div class="form-buttons">
@@ -20,10 +20,10 @@
                 data-handler="onImportLoadForm"
                 data-keyboard="false"
                 class="btn btn-primary">
-                <?= e(trans('ksoft.links::lang.button.import')) ?>
+                <?=e(trans('ksoft.links::lang.button.import'))?>
             </button>
         </div>
 
     </div>
 
-<?= Form::close() ?>
+<?=Form::close()?>

@@ -58,31 +58,31 @@ class ListLinks extends ComponentBase
     public function defineProperties()
     {
         return [
-            'category' => [
+            'category'       => [
                 'title'       => 'ksoft.links::lang.components.links.properties.category.title',
                 'type'        => 'dropdown',
                 'default'     => '0',
                 'placeholder' => 'ksoft.links::lang.components.links.properties.category.placeholder',
             ],
-            'itemsPerPage' => [
+            'itemsPerPage'   => [
                 'title'             => 'ksoft.links::lang.components.links.properties.itemsPerPage.title',
                 'type'              => 'string',
                 'validationPattern' => '^[0-9]+$',
                 'validationMessage' => 'ksoft.links::lang.components.links.properties.itemsPerPage.validationMessage',
                 'default'           => '6',
             ],
-            'order' => [
+            'order'          => [
                 'title'       => 'ksoft.links::lang.components.links.properties.order.title',
                 'placeholder' => 'ksoft.links::lang.components.links.properties.order.placeholder',
                 'type'        => 'dropdown',
                 'default'     => 'desc',
             ],
-            'listTemplate' => [
+            'listTemplate'   => [
                 'title'       => 'ksoft.links::lang.components.links.properties.listTemplate.title',
                 'description' => 'ksoft.links::lang.components.links.properties.listTemplate.description',
                 'type'        => 'dropdown',
                 'default'     => 'list',
-                'options'     => ['list'=>'List', 'menu'=>'Menu', 'plain'=>'Plain', 'card'=>'Card', 'table'=>'Table'],
+                'options'     => ['list' => 'List', 'menu' => 'Menu', 'plain' => 'Plain', 'card' => 'Card', 'table' => 'Table'],
             ],
             'showCategories' => [
                 'title'       => 'ksoft.links::lang.components.links.properties.showCategories.title',
@@ -96,48 +96,48 @@ class ListLinks extends ComponentBase
                 'type'        => 'checkbox',
                 'default'     => '1',
             ],
-            'ulClass' => [
+            'ulClass'        => [
                 'title'       => 'ksoft.links::lang.components.links.properties.ulClass.title',
                 'description' => 'ksoft.links::lang.components.links.properties.ulClass.description',
                 'type'        => 'string',
                 'default'     => 'menu',
                 'group'       => 'ksoft.links::lang.components.links.properties.group.menuStyle',
             ],
-            'liClass' => [
+            'liClass'        => [
                 'title'       => 'ksoft.links::lang.components.links.properties.liClass.title',
                 'description' => 'ksoft.links::lang.components.links.properties.liClass.description',
                 'type'        => 'string',
                 'default'     => 'menu-item',
                 'group'       => 'ksoft.links::lang.components.links.properties.group.menuStyle',
             ],
-            'aClass' => [
+            'aClass'         => [
                 'title'       => 'ksoft.links::lang.components.links.properties.aClass.title',
                 'description' => 'ksoft.links::lang.components.links.properties.aClass.description',
                 'type'        => 'string',
                 'default'     => 'menu-item-link',
                 'group'       => 'ksoft.links::lang.components.links.properties.group.menuStyle',
             ],
-            'pageNumber' => [
+            'pageNumber'     => [
                 'title'       => 'ksoft.links::lang.components.links.properties.pageNumber.title',
                 'description' => 'ksoft.links::lang.components.links.properties.pageNumber.description',
                 'type'        => 'string',
                 'default'     => '{{ :page }}',
                 'group'       => 'ksoft.links::lang.components.links.properties.group.advanced',
             ],
-            'selectedCat' => [
+            'selectedCat'    => [
                 'title'       => 'ksoft.links::lang.components.links.properties.selectedCat.title',
                 'description' => 'ksoft.links::lang.components.links.properties.selectedCat.description',
                 'type'        => 'string',
                 'default'     => '{{ :selected_cat }}',
                 'group'       => 'ksoft.links::lang.components.links.properties.group.advanced',
             ],
-            'catListPage' => [
+            'catListPage'    => [
                 'title'       => 'ksoft.links::lang.components.links.properties.catListPage.title',
                 'description' => 'ksoft.links::lang.components.links.properties.catListPage.description',
                 'type'        => 'dropdown',
                 'group'       => 'ksoft.links::lang.components.links.properties.group.links',
             ],
-            'itemPage' => [
+            'itemPage'       => [
                 'title'       => 'ksoft.links::lang.components.links.properties.itemPage.title',
                 'description' => 'ksoft.links::lang.components.links.properties.itemPage.description',
                 'type'        => 'dropdown',
@@ -153,7 +153,7 @@ class ListLinks extends ComponentBase
      */
     public function getCategoryOptions()
     {
-        $categories = Category::lists('name', 'id');
+        $categories    = Category::lists('name', 'id');
         $categories[0] = Lang::get('ksoft.links::lang.components.links.properties.category.all');
 
         return $categories;
@@ -197,15 +197,15 @@ class ListLinks extends ComponentBase
      */
     public function onRun()
     {
-        $this->itemPage = $this->page['itemPage'] = $this->property('itemPage');
-        $this->catListPage = $this->page['catListPage'] = $this->property('catListPage');
-        $this->page['listTemplate'] = $this->property('listTemplate');
+        $this->itemPage               = $this->page['itemPage']               = $this->property('itemPage');
+        $this->catListPage            = $this->page['catListPage']            = $this->property('catListPage');
+        $this->page['listTemplate']   = $this->property('listTemplate');
         $this->page['showCategories'] = $this->property('showCategories');
         $this->page['showPagination'] = $this->property('showPagination');
-        $this->page['liClass'] = $this->property('liClass');
-        $this->page['ulClass'] = $this->property('ulClass');
-        $this->page['aClass'] = $this->property('aClass');
-        $this->page['cats'] = Category::whereHas('items', function ($q) {
+        $this->page['liClass']        = $this->property('liClass');
+        $this->page['ulClass']        = $this->property('ulClass');
+        $this->page['aClass']         = $this->property('aClass');
+        $this->page['cats']           = Category::whereHas('items', function ($q) {
             $q->where('enabled', 1);
         })->get();
         $this->page['selectedCat'] = $this->property('selectedCat');

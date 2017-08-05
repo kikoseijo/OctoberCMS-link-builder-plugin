@@ -7,7 +7,7 @@ $text = [
 
 $class = [
     0 => 'text-danger',
-    1 => 'text-success'
+    1 => 'text-success',
 ];
 
-echo '<span class="oc-icon-circle '.$class[$record->enabled].'">'.Lang::get('ksoft.links::lang.form.status_'.$text[$record->enabled]).'</span>';
+echo '<span class="oc-icon-circle ' . $class[$record->enabled] . '">' . Lang::get('ksoft.links::lang.form.status_' . $text[$record->enabled]) . '</span>';
