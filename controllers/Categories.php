@@ -2,8 +2,8 @@
 
 namespace Ksoft\Links\Controllers;
 
-use BackendMenu;
 use Backend\Classes\Controller;
+use BackendMenu;
 use Flash;
 use Ksoft\Links\Models\Category;
 use Lang;

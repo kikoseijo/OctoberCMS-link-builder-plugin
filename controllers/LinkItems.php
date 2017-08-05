@@ -47,6 +47,7 @@ class LinkItems extends Controller
 
     /**
      * Delete all selected link items in the table view.
+     *
      * @return array The list element selector as the key, and the list contents are the value.
      */
     public function index_onDelete()
@@ -66,6 +67,7 @@ class LinkItems extends Controller
 
     /**
      * Enable Link items on the listView Table.
+     *
      * @return array The list element selector as the key, and the list contents are the value.
      */
     public function onEnableItems()
@@ -87,6 +89,7 @@ class LinkItems extends Controller
 
     /**
      * Set enabled = 0 on table view actions.
+     *
      * @return array The list element selector as the key, and the list contents are the value.
      */
     public function onDisableItems()
@@ -108,6 +111,7 @@ class LinkItems extends Controller
 
     /**
      * Delete Table list view items.
+     *
      * @return array The list element selector as the key, and the list contents are the value.
      */
     public function onRemoveItem()
@@ -129,6 +133,7 @@ class LinkItems extends Controller
 
     /**
      * Api endpoints to show the link ites with categories.
+     * 
      * @return array Laravel paginated object.
      */
     public function apiLinks()

@@ -27,7 +27,7 @@ class DetailLink extends ComponentBase
     {
         return [
             'name'        => 'ksoft.links::lang.components.item.name',
-            'description' => 'ksoft.links::lang.components.item.description'
+            'description' => 'ksoft.links::lang.components.item.description',
         ];
     }
 
@@ -38,21 +38,21 @@ class DetailLink extends ComponentBase
                 'title'       => 'ksoft.links::lang.components.item.properties.item.title',
                 'description' => 'ksoft.links::lang.components.item.properties.item.description',
                 'type'        => 'dropdown',
-                'default'     => '1'
+                'default'     => '1',
             ],
             'itemSlug'    => [
                 'title'       => 'ksoft.links::lang.components.item.properties.itemSlug.title',
                 'description' => 'ksoft.links::lang.components.item.properties.itemSlug.description',
                 'type'        => 'string',
                 'default'     => '{{ :item_slug }}',
-                'group'       => 'ksoft.links::lang.components.links.properties.group.advanced'
+                'group'       => 'ksoft.links::lang.components.links.properties.group.advanced',
             ],
             'catListPage' => [
                 'title'       => 'ksoft.links::lang.components.links.properties.catListPage.title',
                 'description' => 'ksoft.links::lang.components.links.properties.catListPage.description',
                 'type'        => 'dropdown',
-                'group'       => 'ksoft.links::lang.components.links.properties.group.links'
-            ]
+                'group'       => 'ksoft.links::lang.components.links.properties.group.links',
+            ],
         ];
     }
 
