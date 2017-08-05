@@ -2,8 +2,8 @@
 
 namespace Ksoft\Links\Controllers;
 
-use BackendMenu;
 use Backend\Classes\Controller;
+use BackendMenu;
 use Flash;
 use Ksoft\Links\Models\Category;
 use Ksoft\Links\Models\LinkItem;
@@ -133,7 +133,7 @@ class LinkItems extends Controller
 
     /**
      * Api endpoints to show the link ites with categories.
-     * 
+     *
      * @return array Laravel paginated object.
      */
     public function apiLinks()
