@@ -30,21 +30,21 @@ class LinkItem extends Model
     public $rules = [
         'title' => 'required|max:50',
         'order' => 'numeric',
-        'link'  => 'url'
+        'link'  => 'url',
     ];
 
     /**
      * @var array
      */
     public $customMessages = [
-        'linkItem.link' => 'The link format is invalid (http:// or https://)'
+        'linkItem.link' => 'The link format is invalid (http:// or https://)',
     ];
 
     /**
      * @var array Relations
      */
     public $belongsTo = [
-        'category' => ['Ksoft\Links\Models\Category']
+        'category' => ['Ksoft\Links\Models\Category'],
     ];
 
     /**
@@ -58,7 +58,7 @@ class LinkItem extends Model
     public function setPageUrl($pageName, $controller)
     {
         $params = [
-            'item_slug' => $this->slug
+            'item_slug' => $this->slug,
         ];
 
         return $this->pageUrl = $controller->pageUrl($pageName, $params);

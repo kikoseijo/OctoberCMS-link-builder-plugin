@@ -153,7 +153,7 @@ class ListLinks extends ComponentBase
      */
     public function getCategoryOptions()
     {
-        $categories    = Category::lists('name', 'id');
+        $categories = Category::lists('name', 'id');
         $categories[0] = Lang::get('ksoft.links::lang.components.links.properties.category.all');
 
         return $categories;
@@ -197,15 +197,15 @@ class ListLinks extends ComponentBase
      */
     public function onRun()
     {
-        $this->itemPage               = $this->page['itemPage']               = $this->property('itemPage');
-        $this->catListPage            = $this->page['catListPage']            = $this->property('catListPage');
-        $this->page['listTemplate']   = $this->property('listTemplate');
+        $this->itemPage = $this->page['itemPage'] = $this->property('itemPage');
+        $this->catListPage = $this->page['catListPage'] = $this->property('catListPage');
+        $this->page['listTemplate'] = $this->property('listTemplate');
         $this->page['showCategories'] = $this->property('showCategories');
         $this->page['showPagination'] = $this->property('showPagination');
-        $this->page['liClass']        = $this->property('liClass');
-        $this->page['ulClass']        = $this->property('ulClass');
-        $this->page['aClass']         = $this->property('aClass');
-        $this->page['cats']           = Category::whereHas('items', function ($q) {
+        $this->page['liClass'] = $this->property('liClass');
+        $this->page['ulClass'] = $this->property('ulClass');
+        $this->page['aClass'] = $this->property('aClass');
+        $this->page['cats'] = Category::whereHas('items', function ($q) {
             $q->where('enabled', 1);
         })->get();
         $this->page['selectedCat'] = $this->property('selectedCat');

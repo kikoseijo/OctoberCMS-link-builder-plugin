@@ -17,7 +17,7 @@ class LinkItems extends Controller
     public $implement = [
         'Backend.Behaviors.FormController',
         'Backend.Behaviors.ListController',
-        'Backend.Behaviors.ImportExportController'
+        'Backend.Behaviors.ImportExportController',
     ];
 
     /**
@@ -46,7 +46,7 @@ class LinkItems extends Controller
     }
 
     /**
-     * Delete all selected link items in the table view. ADMIN
+     * Delete all selected link items in the table view.
      * @return array The list element selector as the key, and the list contents are the value.
      */
     public function index_onDelete()
@@ -65,7 +65,7 @@ class LinkItems extends Controller
     }
 
     /**
-     * Enable Link items on the listView Table
+     * Enable Link items on the listView Table.
      * @return array The list element selector as the key, and the list contents are the value.
      */
     public function onEnableItems()
@@ -107,7 +107,7 @@ class LinkItems extends Controller
     }
 
     /**
-     * Delete Table list view items
+     * Delete Table list view items.
      * @return array The list element selector as the key, and the list contents are the value.
      */
     public function onRemoveItem()
@@ -128,8 +128,8 @@ class LinkItems extends Controller
     }
 
     /**
-     * Api endpoints to show the link ites with categories
-     * @return array Laravel paginated object
+     * Api endpoints to show the link ites with categories.
+     * @return array Laravel paginated object.
      */
     public function apiLinks()
     {
@@ -179,7 +179,7 @@ class LinkItems extends Controller
             return call_user_func_array([$this, $action], $parameters);
         } else {
             return response()->json([
-                'message' => 'Not Found'
+                'message' => 'Not Found',
             ], 404);
         }
     }

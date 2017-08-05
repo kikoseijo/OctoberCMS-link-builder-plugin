@@ -4,6 +4,7 @@ namespace Ksoft\Links;
 
 use Backend;
 use System\Classes\PluginBase;
+
 /**
  * OctoberCMS - links builder plugin.
  */
