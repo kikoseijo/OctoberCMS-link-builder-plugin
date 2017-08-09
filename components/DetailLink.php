@@ -5,6 +5,7 @@ namespace Ksoft\Links\Components;
 use Cms\Classes\ComponentBase;
 use Cms\Classes\Page;
 use Ksoft\Links\Models\LinkItem;
+use Ksoft\Links\Models\Settings;
 use Lang;
 
 class DetailLink extends ComponentBase
@@ -15,6 +16,13 @@ class DetailLink extends ComponentBase
      * @var
      */
     public $linkItem;
+
+    /**
+     * Value holds the selected templateType to display.
+     *
+     * @var
+     */
+    public $templateType;
 
     /**
      * Reference to the page where items of a category are displayed.
@@ -33,6 +41,7 @@ class DetailLink extends ComponentBase
 
     public function defineProperties()
     {
+        $settings = Settings::instance();
         return [
             'item'        => [
                 'title'       => 'ksoft.links::lang.components.item.properties.item.title',
@@ -51,6 +60,8 @@ class DetailLink extends ComponentBase
                 'title'       => 'ksoft.links::lang.components.links.properties.catListPage.title',
                 'description' => 'ksoft.links::lang.components.links.properties.catListPage.description',
                 'type'        => 'dropdown',
+                'default'     => $settings->links_page,
+                'options'     => $this->getPageOptions(),
                 'group'       => 'ksoft.links::lang.components.links.properties.group.links',
             ],
         ];
@@ -74,7 +85,7 @@ class DetailLink extends ComponentBase
      *
      * @return mixed
      */
-    public function getCatListPageOptions()
+    public function getPageOptions()
     {
         return Page::sortBy('baseFileName')->lists('baseFileName', 'baseFileName');
     }
@@ -83,6 +94,7 @@ class DetailLink extends ComponentBase
     {
         // Page links
         $this->catListPage = $this->page['catListPage'] = $this->property('catListPage');
+        $this->templateType = Settings::get('css_framework') ? 'bulma' : 'bootstrap';
 
         // find the correct property to select the items with
         $object = null;

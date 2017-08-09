@@ -14,7 +14,18 @@ return [
         'sideMenu' => [
             'items'      => 'Links',
             'categories' => 'Categories',
+            'settings'   => 'Settings',
         ],
+    ],
+
+    'settings' => [
+        'menuLabel'       => 'Settings',
+        'menuDescription' => 'Set your default pages and prefered framework.',
+        'detail_page'     => 'Select the link detail page',
+        'links_page'      => 'Select the page to go when clicking on categories',
+        'general'         => 'General options',
+        'style'           => 'Partials render options',
+        'syleLabel'       => 'Select your prefered CSS framework used to render the partials',
     ],
 
     'button' => [
@@ -84,14 +95,15 @@ return [
 
     'fields' => [
         'item'     => [
-            'title'   => 'Title',
-            'link'    => 'Link',
-            'image'   => 'Image',
-            'phone'   => 'Phone',
-            'order'   => 'Order',
-            'target'  => 'Open in new window',
-            'enabled' => 'Enabled',
-            'slug'    => 'Url Slug',
+            'title'      => 'Title',
+            'link'       => 'Link',
+            'image'      => 'Image',
+            'extra_data' => 'Link description',
+            'phone'      => 'Phone',
+            'order'      => 'Order',
+            'target'     => 'Open in new window',
+            'enabled'    => 'Enabled',
+            'slug'       => 'Url Slug',
         ],
         'category' => [
             'name'        => 'Name',
@@ -107,7 +119,7 @@ return [
             'description' => 'Display a Link item in a page.',
             'properties'  => [
                 'item'     => [
-                    'title'       => 'Link item to show',
+                    'title'       => 'Default link item to show',
                     'description' => 'Select a Link item to show. Will be overridden by URL item selection.',
                     'none'        => 'None',
                 ],
@@ -154,12 +166,12 @@ return [
                     'description' => 'Page where Link items can be displayed.',
                 ],
                 'catListPage'    => [
-                    'title'       => 'Links page',
+                    'title'       => 'Link items page',
                     'description' => 'Page where Link item of the selected category are listed.',
                 ],
                 'listTemplate'   => [
-                    'title'       => 'Template',
-                    'description' => 'Choose a template from the list to be used when rendering.',
+                    'title'       => 'Choose a template',
+                    'description' => 'Template to use from the list when rendering the component.',
                 ],
                 'showCategories' => [
                     'title'       => 'Show categories',

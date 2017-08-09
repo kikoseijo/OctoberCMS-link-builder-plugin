@@ -10,6 +10,7 @@ use System\Classes\PluginBase;
  */
 class Plugin extends PluginBase
 {
+
     public function pluginDetails()
     {
         return [
@@ -41,6 +42,11 @@ class Plugin extends PluginBase
                         'icon'  => 'icon-folder',
                         'url'   => Backend::url('ksoft/links/categories'),
                     ],
+                    'setting'    => [
+                        'label' => 'ksoft.links::lang.navigation.sideMenu.settings',
+                        'url'   => Backend::url('system/settings/update/ksoft/links/settings'),
+                        'icon'  => 'icon-cog',
+                    ],
                 ],
             ],
         ];
@@ -58,6 +64,20 @@ class Plugin extends PluginBase
         return [
             'Ksoft\Links\Components\ListLinks'  => 'listLinks',
             'Ksoft\Links\Components\DetailLink' => 'detailLink',
+        ];
+    }
+
+    public function registerSettings()
+    {
+        return [
+            'settings' => [
+                'label'       => 'ksoft.links::lang.plugin.name',
+                'description' => 'ksoft.links::lang.settings.menuDescription',
+                'icon'        => 'icon-building-o',
+                'class'       => 'Ksoft\Links\Models\Settings',
+                'permissions' => ['ksoft.links.manage_plugins'],
+                'order'       => 500,
+            ],
         ];
     }
 }

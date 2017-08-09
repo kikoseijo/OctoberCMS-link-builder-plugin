@@ -6,6 +6,7 @@ use Cms\Classes\ComponentBase;
 use Cms\Classes\Page;
 use Ksoft\Links\Models\Category;
 use Ksoft\Links\Models\LinkItem;
+use Ksoft\Links\Models\Settings;
 use Lang;
 
 class ListLinks extends ComponentBase
@@ -16,6 +17,13 @@ class ListLinks extends ComponentBase
      * @var Collection
      */
     public $links;
+
+    /**
+     * Holds the current templateType to use (bulma,bootstrap,...).
+     *
+     * @var Collection
+     */
+    public $templateType;
 
     /**
      * Reference to the item page to link items to.
@@ -57,6 +65,7 @@ class ListLinks extends ComponentBase
      */
     public function defineProperties()
     {
+        $settings = Settings::instance();
         return [
             'category'       => [
                 'title'       => 'ksoft.links::lang.components.links.properties.category.title',
@@ -135,12 +144,16 @@ class ListLinks extends ComponentBase
                 'title'       => 'ksoft.links::lang.components.links.properties.catListPage.title',
                 'description' => 'ksoft.links::lang.components.links.properties.catListPage.description',
                 'type'        => 'dropdown',
+                'default'     => $settings->links_page,
+                'options'     => $this->getPageOptions(),
                 'group'       => 'ksoft.links::lang.components.links.properties.group.links',
             ],
             'itemPage'       => [
                 'title'       => 'ksoft.links::lang.components.links.properties.itemPage.title',
                 'description' => 'ksoft.links::lang.components.links.properties.itemPage.description',
                 'type'        => 'dropdown',
+                'default'     => $settings->detail_page,
+                'options'     => $this->getPageOptions(),
                 'group'       => 'ksoft.links::lang.components.links.properties.group.links',
             ],
         ];
@@ -177,17 +190,7 @@ class ListLinks extends ComponentBase
      *
      * @return mixed
      */
-    public function getItemPageOptions()
-    {
-        return Page::sortBy('baseFileName')->lists('baseFileName', 'baseFileName');
-    }
-
-    /**
-     * Get options for the dropdown where the link to the category list page can be selected.
-     *
-     * @return mixed
-     */
-    public function getCatListPageOptions()
+    public function getPageOptions()
     {
         return Page::sortBy('baseFileName')->lists('baseFileName', 'baseFileName');
     }
@@ -199,6 +202,7 @@ class ListLinks extends ComponentBase
     {
         $this->itemPage = $this->page['itemPage'] = $this->property('itemPage');
         $this->catListPage = $this->page['catListPage'] = $this->property('catListPage');
+        $this->templateType = Settings::get('css_framework') ? 'bulma' : 'bootstrap';
         $this->page['listTemplate'] = $this->property('listTemplate');
         $this->page['showCategories'] = $this->property('showCategories');
         $this->page['showPagination'] = $this->property('showPagination');

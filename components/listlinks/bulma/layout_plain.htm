@@ -1,0 +1,16 @@
+{#  #}
+<div class="row layout-plain">
+    {% for item in __SELF__.links %}
+        <div class="col-sm-12">
+            <a href="{{item.pageUrl}}">{{item.title}}</a><br />
+            Description:  {{item.description}}<br />
+            Image path:  {{item.imageUrl}}<br />
+            Phone: {{item.phone}}<br />
+            Date Created:  {{item.created_at}}<br />
+            <a href="{{ item.category.pageUrl }}">{{ item.category.name }}</a><br />
+            <a{% if item.target %} target="_blank"{% endif %} href="{{ item.link }}"  class="btn btn-primary">
+                {{ 'ksoft.links::lang.components.visit_website' | trans }}
+            </a><br />
+        </div>
+    {% endfor %}
+</div>

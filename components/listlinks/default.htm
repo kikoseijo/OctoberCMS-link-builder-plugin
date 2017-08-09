@@ -1,4 +1,4 @@
-
+{#  #}
 {% if showCategories %}
 <div class="row">
     <ul class="nav nav-pills">
@@ -16,17 +16,15 @@
 {% endif %}
 
 {% if listTemplate == 'menu' %}
-    {% partial '@layout_menu' links=__SELF__.links %}
+    {% partial '@'~ __SELF__.templateType  ~'/layout_menu' links=__SELF__.links %}
 {% elseif listTemplate != 'table' %}
-    {% for item in __SELF__.links %}
-        {% if listTemplate == 'list' %}
-            {% partial '@layout_list' item=item %}
-        {% elseif listTemplate == 'card' %}
-            {% partial '@layout_card' item=item %}
-        {% else %}
-            {% partial '@layout_plain' item=item %}
-        {% endif %}
-    {% endfor %}
+    {% if listTemplate == 'list' %}
+        {% partial '@'~ __SELF__.templateType  ~'/layout_list' item=item %}
+    {% elseif listTemplate == 'card' %}
+        {% partial '@'~ __SELF__.templateType  ~'/layout_card' item=item %}
+    {% else %}
+        {% partial '@'~ __SELF__.templateType  ~'/layout_plain' item=item %}
+    {% endif %}
     {% if showPagination %}
         {% if __SELF__.links.lastPage > 0 %}
         <div class="row">

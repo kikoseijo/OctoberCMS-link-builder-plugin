@@ -60,6 +60,8 @@ class Category extends Model
             'selected_cat' => $this->slug,
         ];
 
+        //dd($controller->pageUrl($pageName, $params));
+
         return $this->pageUrl = $controller->pageUrl($pageName, $params);
     }
 }

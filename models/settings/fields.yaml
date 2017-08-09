@@ -1,0 +1,26 @@
+fields:
+    section_pagination:
+        tab: ksoft.links::lang.settings.general
+        label: ksoft.links::lang.settings.menuDescription
+        type: section
+tabs:
+    fields:
+        detail_page:
+            tab: ksoft.links::lang.settings.general
+            label: ksoft.links::lang.settings.detail_page
+            type: dropdown
+            default: 404
+
+        links_page:
+            tab: ksoft.links::lang.settings.general
+            label: ksoft.links::lang.settings.links_page
+            type: dropdown
+            default: 404
+            options: getDetailPageOptions
+
+        css_framework:
+            tab: ksoft.links::lang.settings.style
+            label: ksoft.links::lang.settings.syleLabel
+            type: radio
+            default: 0
+            options: ['Bootstrap','Bulma']
