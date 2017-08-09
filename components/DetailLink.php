@@ -42,6 +42,7 @@ class DetailLink extends ComponentBase
     public function defineProperties()
     {
         $settings = Settings::instance();
+
         return [
             'item'        => [
                 'title'       => 'ksoft.links::lang.components.item.properties.item.title',
