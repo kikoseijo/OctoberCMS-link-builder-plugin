@@ -1,4 +1,6 @@
-<?php namespace Ksoft\Links\Models;
+<?php
+
+namespace Ksoft\Links\Models;
 
 use Cms\Classes\Page;
 use Model;
@@ -22,5 +24,4 @@ class Settings extends Model
     {
         return Page::sortBy('baseFileName')->lists('baseFileName', 'baseFileName');
     }
-
 }

@@ -66,6 +66,7 @@ class ListLinks extends ComponentBase
     public function defineProperties()
     {
         $settings = Settings::instance();
+
         return [
             'category'       => [
                 'title'       => 'ksoft.links::lang.components.links.properties.category.title',
