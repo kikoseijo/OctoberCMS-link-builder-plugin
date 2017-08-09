@@ -6,7 +6,7 @@ This plugin allows you to show off a list of `categorized links` on your website
 It comes with `4 diferent list templates` to use when showing the list of link items in your pages: List View, Table View, Card View (bootstrap4) and Plain.
 The table view its a Vue.js mini script that will load the lists from the links API endpoint. (Its for demo purposes on how the api works)
 
-> To use the API enpoints build in `apiEnabled` must be set to true in the config.php
+> To use the API endpoints build in `apiEnabled` must be set to true in the config.php
 
 Links are categorized with the following structure:
 
