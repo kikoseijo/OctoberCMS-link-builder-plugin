@@ -4,6 +4,6 @@
 //config/ksoft/links/config.php
 return [
     'apiEnabled'     => true,
-    'apiRoutePrefix' => 'api/v1/links',
+    'apiRoutePrefix' => 'api/v1/',
     'apiRouteLinks'  => 'links',
 ];

@@ -1,0 +1,14 @@
+
+<div class="row">
+    <ul class="nav nav-pills">
+        <li role="presentation"{{ selectedCat == '' ?  'class="active"' }}{{ selectedCat == 'default' ?  'class="active"' }}>
+          <a href="{{ this.page.baseFileName|page({ selected_cat: '', page:'' }) }}">All categories</a>
+        </li>
+        {% for cat in cats %}
+            <li role="presentation"{{ selectedCat == cat.slug ?  'class="active"' }}>
+                <a href="{{ this.page.baseFileName|page({ selected_cat: cat.slug, page:'' }) }}">{{cat.name}}</a>
+            </li>
+        {% endfor %}
+    </ul>
+    <hr />
+</div>

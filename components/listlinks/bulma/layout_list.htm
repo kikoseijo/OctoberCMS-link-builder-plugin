@@ -1,32 +1,36 @@
-{#  #}
-<div class="links">
-{% for item in __SELF__.links %}
-    <div class="row links-row">
-            <div class="col-sm-3">
-                <a href="{{item.pageUrl}}">
-                    <img class="img-responsive" src="{{item.imageUrl}}" alt="{{ item.title }}" {% if item.title %}title="{{ item.title }}"{% endif %}>
-                </a>
-            </div>
-            <div class="col-sm-9">
-                <a href="{{item.pageUrl}}">{{item.title}}</a><br />
-                {% if item.description != '' %}
-                    Description:  {{item.description}}<br />
-                {% endif %}
-                {% if item.phone != '' %}
-                    Phone: {{item.phone}}<br />
-                {% endif %}
-                Created:  {{item.created_at}}<br />
-                {% if item.category.name != '' %}
-                    <a href="{{ item.category.pageUrl }}">{{ item.category.name }}</a><br />
-                {% endif %}
-                &nbsp;<br />
-                {% if item.link %}
-                <a{% if item.target != '' %} target="_blank"{% endif %} href="{{ item.link }}"  class="btn btn-primary">
+
+<div class="tile is-ancestor">
+{% for key, item in __SELF__.links %}
+    <div class="tile is-parent is-3">
+        <article class="tile is-child box">
+            <p class="title"><a href="{{item.pageUrl}}">{{item.title}}</a></p>
+            {% if item.phone != '' %}
+                <p class="subtitle">Phone: {{item.phone}}</p>
+            {% endif %}
+            {% if item.link %}
+                <a{% if item.target != '' %} target="_blank"{% endif %} href="{{ item.link }}">
                     {{ 'ksoft.links::lang.components.visit_website' | trans }}
-                </a><br />
-                {% endif %}
-            </div>
+                </a>
+                <br />
+            {% endif %}
+            {% if item.description != '' %}
+                <p>{{item.description}}</p>
+            {% endif %}
+            <small>Created:  {{item.created_at}}</small><br />
+            {% if item.category.name != '' %}
+                <a href="{{ item.category.pageUrl }}">{{ item.category.name }}</a>
+            {% endif %}
+            <figure class="image is-4by3">
+                <a href="{{item.pageUrl}}">
+                    <img src="{{item.imageUrl}}" alt="{{ item.title }}" {% if item.title %}title="{{ item.title }}"{% endif %}>
+                </a>
+            </figure>
+        </article>
     </div>
+    {% if (key+1)%4 == 0 %}
+        </div>
+        <div class="tile is-ancestor">
+    {% endif %}
 {% endfor %}
 </div>
 

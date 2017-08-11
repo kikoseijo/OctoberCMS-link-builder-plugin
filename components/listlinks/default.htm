@@ -1,18 +1,6 @@
 {#  #}
 {% if showCategories %}
-<div class="row">
-    <ul class="nav nav-pills">
-        <li role="presentation"{{ selectedCat == '' ?  'class="active"' }}{{ selectedCat == 'default' ?  'class="active"' }}>
-          <a href="{{ this.page.baseFileName|page({ selected_cat: '', page:'' }) }}">All categories</a>
-        </li>
-        {% for cat in cats %}
-            <li role="presentation"{{ selectedCat == cat.slug ?  'class="active"' }}>
-                <a href="{{ this.page.baseFileName|page({ selected_cat: cat.slug, page:'' }) }}">{{cat.name}}</a>
-            </li>
-        {% endfor %}
-    </ul>
-    <hr />
-</div>
+  {% partial '@'~ __SELF__.templateType  ~'/category_nav' item=item %}
 {% endif %}
 
 {% if listTemplate == 'menu' %}
@@ -27,25 +15,7 @@
     {% endif %}
     {% if showPagination %}
         {% if __SELF__.links.lastPage > 0 %}
-        <div class="row">
-            <div class="col-sm-12">
-                <ul class="pagination">
-                    {% if __SELF__.links.currentPage > 1 %}
-                    <li><a href="{{ this.page.baseFileName|page({ page: (__SELF__.links.currentPage - 1), selected_cat:selectedCat }) }}">&larr; Prev</a></li>
-                    {% endif %}
-
-                    {% for page in 1..__SELF__.links.lastPage %}
-                    <li class="{{ __SELF__.links.currentPage == page ? 'active' : null }}">
-                        <a href="{{ this.page.baseFileName|page({ page: page, selected_cat:selectedCat }) }}">{{ page }}</a>
-                    </li>
-                    {% endfor %}
-
-                    {% if __SELF__.links.lastPage > __SELF__.links.currentPage %}
-                    <li><a href="{{ this.page.baseFileName|page({ page: (__SELF__.links.currentPage + 1), selected_cat:selectedCat }) }}">Next &rarr;</a></li>
-                    {% endif %}
-                </ul>
-            </div>
-        </div>
+          {% partial '@'~ __SELF__.templateType  ~'/pagination' item=item %}
         {% endif %}
     {% endif %}
 {% elseif listTemplate == 'table' %}

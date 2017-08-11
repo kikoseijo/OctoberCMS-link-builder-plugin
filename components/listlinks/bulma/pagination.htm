@@ -1,0 +1,18 @@
+
+<nav class="pagination">
+  {% if __SELF__.links.currentPage > 1 %}
+  <a href="{{ this.page.baseFileName|page({ page: (__SELF__.links.currentPage - 1), selected_cat:selectedCat }) }}" class="pagination-previous">&larr; Prev</a>
+  {% endif %}
+  {% if __SELF__.links.lastPage > __SELF__.links.currentPage %}
+  <a href="{{ this.page.baseFileName|page({ page: (__SELF__.links.currentPage + 1), selected_cat:selectedCat }) }}" class="pagination-next">Next &rarr;</a>
+  {% endif %}
+  <ul class="pagination-list">
+
+      {% for page in 1..__SELF__.links.lastPage %}
+      <li>
+          <a href="{{ this.page.baseFileName|page({ page: page, selected_cat:selectedCat }) }}" class="pagination-link{{ __SELF__.links.currentPage == page ? ' is-current' : null }}">{{ page }}</a>
+      </li>
+      {% endfor %}
+
+  </ul>
+</nav>

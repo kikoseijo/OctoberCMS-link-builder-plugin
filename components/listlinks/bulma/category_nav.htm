@@ -1,0 +1,13 @@
+
+<div class="tabs">
+    <ul>
+        <li{{ selectedCat == '' ? ' class="is-active"' }}{{ selectedCat == 'default' ? ' class="is-active"' }}>
+          <a href="{{ this.page.baseFileName|page({ selected_cat: '', page:'' }) }}">All categories</a>
+        </li>
+        {% for cat in cats %}
+            <li{{ selectedCat == cat.slug ? ' class="is-active"' }}>
+                <a href="{{ this.page.baseFileName|page({ selected_cat: cat.slug, page:'' }) }}">{{cat.name}}</a>
+            </li>
+        {% endfor %}
+    </ul>
+</div>
