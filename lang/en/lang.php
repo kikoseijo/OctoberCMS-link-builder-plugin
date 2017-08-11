@@ -198,13 +198,12 @@ return [
     ],
 
     'form' => [
-        'status'              => 'Status',
-        'status_published'    => 'Published',
-        'status_hide'         => 'Hidden',
-        'status_draft'        => 'Draft',
-        'status_active'       => 'Active',
-        'status_unsubscribed' => 'Unsubscribed',
-        'featured'            => 'Featured',
+        'status'           => 'Status',
+        'status_published' => 'Published',
+        'status_hide'      => 'Hidden',
+        'status_draft'     => 'Draft',
+        'status_active'    => 'Active',
+        'featured'         => 'Featured',
     ],
 
 ];

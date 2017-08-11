@@ -2,8 +2,7 @@
 
 return [
 
-    'links'      => 'Enlaces',
-    'extra_data' => 'Datos extra',
+    'links' => 'Enlaces',
 
     'plugin' => [
         'name'        => 'Motor de enlaces',
@@ -15,7 +14,18 @@ return [
         'sideMenu' => [
             'items'      => 'Enlaces',
             'categories' => 'Categorías',
+            'settings'   => 'Ajustes',
         ],
+    ],
+
+    'settings' => [
+        'menuLabel'       => 'Ajustes',
+        'menuDescription' => 'Permite ajuster el framework y las páginas por defecto',
+        'detail_page'     => 'Página detalle del link',
+        'links_page'      => 'Página de los listados de links',
+        'general'         => 'Opciones generales',
+        'style'           => 'Opciones de renderizado de parciales',
+        'syleLabel'       => 'Selecciona el framework para aplicar los estilos en los parciales',
     ],
 
     'button' => [
@@ -85,14 +95,15 @@ return [
 
     'fields' => [
         'item'     => [
-            'title'   => 'Titulo',
-            'link'    => 'Url del Enlace',
-            'image'   => 'Imágen',
-            'phone'   => 'Teléfono',
-            'order'   => 'Orden',
-            'target'  => 'Abrir en ventana nueva',
-            'enabled' => 'Habilitado',
-            'slug'    => 'Permalink del enlace (slug)',
+            'title'      => 'Titulo',
+            'link'       => 'Url del Enlace',
+            'image'      => 'Imágen',
+            'extra_data' => 'Link description',
+            'phone'      => 'Teléfono',
+            'order'      => 'Orden',
+            'target'     => 'Abrir en ventana nueva',
+            'enabled'    => 'Habilitado',
+            'slug'       => 'Permalink del enlace (slug)',
         ],
         'category' => [
             'name'        => 'Nombre',
