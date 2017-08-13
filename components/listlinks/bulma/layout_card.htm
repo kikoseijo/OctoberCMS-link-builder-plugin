@@ -1,6 +1,6 @@
 
 <section class="section">
-<div class="columns">
+<div class="columns is-multiline">
   {% for key, item in __SELF__.links %}
   <div class="column is-one-quarter">
       <div class="card layout-card">
@@ -36,10 +36,6 @@
         </div>
       </div>
   </div>
-  {% if (key+1)%4 == 0 %}
-    </div>
-    <div class="columns">
-  {% endif %}
   {% endfor %}
 </div>
 
